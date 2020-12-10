@@ -1,0 +1,101 @@
+---
+output: 
+  pdf_document:
+    latex_engine: pdflatex
+    keep_tex: false
+    dev: cairo_pdf
+    template: svm-latex-resume.tex
+
+title: "Résumé"
+author: "Bobby Slavin"
+date: "8/31/2020 -- Update before applying"
+
+fontawesome: TRUE
+geometry: margin=1in
+# geometry: "top=.5in, left =.5in, right=.5in, bottom=.75in"
+
+# How can we get a hold of you?
+email: BobbySlavin2@gmail.com
+phone: 501-703-3164
+location: "Little Rock, AR"
+github: bslavin
+linkedin: "bobby-slavin-490b791ba"
+mainfont: cochineal
+sansfont: Fira Sans
+# monofont: Fira Code # I want to use this, but seems to choke on @
+urlcolor: blue
+fontsize: 11pt
+
+
+includephoto: FALSE
+myphoto: rick-martel-crop.jpg
+# shift: "7in,-.25in" # this is default
+photobigness: 1.75cm
+# photozoom: ".2\textwidth" # this is default
+---
+
+
+<!-- Read more about Pandoc's [fenced_divs](https://pandoc.org/MANUAL.html#extension-fenced_divs) syntax -->
+
+:::::: {.columns}
+::: {.column width="60%" data-latex="{0.60\textwidth}"}
+
+# Professional Experience
+
+- None so far, but I'm planning to get some professional experience during university once COVID-19 is over.
+
+
+
+
+:::
+::: {.column width="2%" data-latex="{0.02\textwidth}"}
+\ 
+<!-- an empty div with an empty character to serve as a column sep -->
+:::
+:::::: {.column width="38%" data-latex="{0.38\textwidth}"}
+
+# Education
+
+## Postgraduate Program
+
+
+ 
+## Undergraduate Program
+
+
+
+# Technical Skills (or Accomplishments)
+
+- I know Javascript, Python, and R
+
+
+## Awards and Distinctions
+
+- Got a score of 1450 on the SAT and a score of 33 on the ACT.
+
+:::
+::::::
+
+<!-- If you want another page, this is how you can do it... -->
+
+<!-- \newpage
+
+:::::: {.columns}
+::: {.column width="60%" data-latex="{0.60\textwidth}"}
+
+
+
+
+:::
+::: {.column width="2%" data-latex="{0.02\textwidth}"}
+\
+
+
+:::
+:::::: {.column width="38%" data-latex="{0.38\textwidth}"}
+
+
+:::
+::::::
+
+-->
