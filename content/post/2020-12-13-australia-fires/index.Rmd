@@ -18,9 +18,9 @@ library(readxl)
 library(dplyr)
 ```
 ```{r}
-Rainfall<-read.csv(here::here("data","rainfall.csv"))
-Temperature<-read.csv(here::here("data","temperature.csv"))
-Fires<-read.csv(here::here("data","MODIS_C6_Australia_and_New_Zealand_7d.csv"))
+Rainfall<-read.csv(here::here("content","post","2020-12-13-australia-fires","data","rainfall.csv"))
+Temperature<-read.csv(here::here("content","post","2020-12-13-australia-fires","data","temperature.csv"))
+Fires<-read.csv(here::here("content","post","2020-12-13-australia-fires","data","MODIS_C6_Australia_and_New_Zealand_7d.csv"))
 ```
 Using the Australia fires data from tinytuesday I will investigate the location and frequency of the fires in Australia. I will use the rainfall and MODIS datasets to explore this.
 
