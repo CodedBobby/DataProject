@@ -10,13 +10,15 @@ tags: []
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r, message=FALSE}
+```{r, message=FALSE, include=FALSE}
 library(here)
 library(ggplot2)
 library(tidyverse)
 library(readxl)
 library(dplyr)
+knitr::opts_chunk$set(echo = TRUE, tidy = TRUE)
 ```
+
 ```{r}
 Rainfall<-read.csv(here::here("content","post","2020-12-13-australia-fires","data","rainfall.csv"))
 Temperature<-read.csv(here::here("content","post","2020-12-13-australia-fires","data","temperature.csv"))

@@ -11,49 +11,33 @@ tags: []
 <script src="index_files/anchor-sections/anchor-sections.js"></script>
 
 
-<pre class="r"><code>library(here)
-library(ggplot2)
-library(tidyverse)
-library(readxl)
-library(dplyr)</code></pre>
-<pre class="r"><code>Rainfall&lt;-read.csv(here::here(&quot;content&quot;,&quot;post&quot;,&quot;2020-12-13-australia-fires&quot;,&quot;data&quot;,&quot;rainfall.csv&quot;))
-Temperature&lt;-read.csv(here::here(&quot;content&quot;,&quot;post&quot;,&quot;2020-12-13-australia-fires&quot;,&quot;data&quot;,&quot;temperature.csv&quot;))
-Fires&lt;-read.csv(here::here(&quot;content&quot;,&quot;post&quot;,&quot;2020-12-13-australia-fires&quot;,&quot;data&quot;,&quot;MODIS_C6_Australia_and_New_Zealand_7d.csv&quot;))</code></pre>
+<pre class="r"><code>Rainfall &lt;- read.csv(here::here(&quot;content&quot;, &quot;post&quot;, &quot;2020-12-13-australia-fires&quot;, 
+    &quot;data&quot;, &quot;rainfall.csv&quot;))
+Temperature &lt;- read.csv(here::here(&quot;content&quot;, &quot;post&quot;, &quot;2020-12-13-australia-fires&quot;, 
+    &quot;data&quot;, &quot;temperature.csv&quot;))
+Fires &lt;- read.csv(here::here(&quot;content&quot;, &quot;post&quot;, &quot;2020-12-13-australia-fires&quot;, &quot;data&quot;, 
+    &quot;MODIS_C6_Australia_and_New_Zealand_7d.csv&quot;))</code></pre>
 <p>Using the Australia fires data from tinytuesday I will investigate the location and frequency of the fires in Australia. I will use the rainfall and MODIS datasets to explore this.</p>
 <div id="question-1" class="section level1">
 <h1>Question 1:</h1>
 <p>How many of these fires happened near the cities? I will examine this by counting the number of instances of fires with longitude and latitude equal to the city coordinates rounded to 0 decimal places.</p>
-<pre class="r"><code>CityCoord &lt;- Rainfall %&gt;%
-  select(city_name,lat,long)%&gt;%
-  rename(longitude=long,latitude=lat)%&gt;%
-  mutate(longitude = round(longitude,digits=0),latitude=round(latitude,digits=0))%&gt;%
-  group_by(city_name)%&gt;%
-  summarize(latitude=mean(latitude),longitude=mean(longitude))%&gt;%
-  mutate(longitude = round(longitude,digits=0),latitude=round(latitude,digits=0))</code></pre>
+<pre class="r"><code>CityCoord &lt;- Rainfall %&gt;% select(city_name, lat, long) %&gt;% rename(longitude = long, 
+    latitude = lat) %&gt;% mutate(longitude = round(longitude, digits = 0), latitude = round(latitude, 
+    digits = 0)) %&gt;% group_by(city_name) %&gt;% summarize(latitude = mean(latitude), 
+    longitude = mean(longitude)) %&gt;% mutate(longitude = round(longitude, digits = 0), 
+    latitude = round(latitude, digits = 0))</code></pre>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<pre class="r"><code>Fires %&gt;%
-  mutate(longitude = round(longitude,digits=0),latitude=round(latitude,digits=0))%&gt;%
-  left_join(CityCoord,by = c(&quot;longitude&quot;,&quot;latitude&quot;))%&gt;%
-  na.omit(city_name)%&gt;%
-  count(city_name)%&gt;%
-  ggplot(aes(city_name,n))+
-  geom_bar(stat=&quot;identity&quot;)+
-  ylab(&quot;Number of nearby fires&quot;)+
-  xlab(&quot;City&quot;)+
-  ggtitle(&quot;Number of fires vs Nearby Cities&quot;)</code></pre>
+<pre class="r"><code>Fires %&gt;% mutate(longitude = round(longitude, digits = 0), latitude = round(latitude, 
+    digits = 0)) %&gt;% left_join(CityCoord, by = c(&quot;longitude&quot;, &quot;latitude&quot;)) %&gt;% na.omit(city_name) %&gt;% 
+    count(city_name) %&gt;% ggplot(aes(city_name, n)) + geom_bar(stat = &quot;identity&quot;) + 
+    ylab(&quot;Number of nearby fires&quot;) + xlab(&quot;City&quot;) + ggtitle(&quot;Number of fires vs Nearby Cities&quot;)</code></pre>
 <p><img src="index_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 # Question 2:
 Where have fires happened the most? To determine this, I will round the longitudes and latitudes of all fires to two decimal places and count the 10 areas with the highest number of fires.</p>
-<pre class="r"><code>Fires %&gt;%
-  mutate(longitude = round(longitude,digits=2),latitude=round(latitude,digits=2))%&gt;%
-  group_by(longitude,latitude)%&gt;%
-  summarize(total = n())%&gt;%
-  ungroup()%&gt;%
-  slice_max(total, n = 10)%&gt;%
-  ggplot(aes(longitude,latitude))+
-  borders(&quot;world&quot;)+
-  coord_quickmap(xlim = 110:160,ylim = -50:-10)+
-  geom_point()</code></pre>
+<pre class="r"><code>Fires %&gt;% mutate(longitude = round(longitude, digits = 2), latitude = round(latitude, 
+    digits = 2)) %&gt;% group_by(longitude, latitude) %&gt;% summarize(total = n()) %&gt;% 
+    ungroup() %&gt;% slice_max(total, n = 10) %&gt;% ggplot(aes(longitude, latitude)) + 
+    borders(&quot;world&quot;) + coord_quickmap(xlim = 110:160, ylim = -50:-10) + geom_point()</code></pre>
 <pre><code>## `summarise()` regrouping output by &#39;longitude&#39; (override with `.groups` argument)</code></pre>
 <p><img src="index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>It seems the areas with the highest number of fires are all near the eastern coast of Australia.</p>
@@ -61,13 +45,8 @@ Where have fires happened the most? To determine this, I will round the longitud
 <div id="question-3" class="section level1">
 <h1>Question 3:</h1>
 <p>How has the frequency of fires changed over the 7 days? To determine this, I will create a line graph counting every instance of a fire over the days.</p>
-<pre class="r"><code>Fires %&gt;%
-  count(acq_date)%&gt;%
-  ggplot(aes(acq_date,n))+
-  geom_line(group = 1)+
-  ylab(&quot;Number of Fires&quot;)+
-  xlab(&quot;Date&quot;)+
-  ggtitle(&quot;Number of Fires over time&quot;)</code></pre>
+<pre class="r"><code>Fires %&gt;% count(acq_date) %&gt;% ggplot(aes(acq_date, n)) + geom_line(group = 1) + ylab(&quot;Number of Fires&quot;) + 
+    xlab(&quot;Date&quot;) + ggtitle(&quot;Number of Fires over time&quot;)</code></pre>
 <p><img src="index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>The amount of fires is mostly consistent, but there’s a sharp drop in the number of fires on the seventh day.</p>
 </div>

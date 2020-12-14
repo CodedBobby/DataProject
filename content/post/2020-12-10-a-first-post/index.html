@@ -12,12 +12,6 @@ tags: []
 
 
 <p>Using the volcano data from tinytuesday I will investigate volcanic eruptions and the affect they have on the environment. I will use the volcano, eruptions and sulfur datasets in order to explore this.</p>
-<pre class="r"><code>library(here)
-library(ggplot2)
-library(tidyverse)
-library(readxl)
-library(dplyr)
-knitr::opts_chunk$set(echo = TRUE, tidy = TRUE)</code></pre>
 <pre class="r"><code>dat1 &lt;- read.csv(here::here(&quot;content&quot;, &quot;post&quot;, &quot;2020-12-10-a-first-post&quot;, &quot;data&quot;, 
     &quot;volcano.csv&quot;))
 dat2 &lt;- read.csv(here::here(&quot;content&quot;, &quot;post&quot;, &quot;2020-12-10-a-first-post&quot;, &quot;data&quot;, 

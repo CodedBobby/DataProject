@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Using the volcano data from tinytuesday I will investigate volcanic eruptions and the affect they have on the environment. I will use the volcano, eruptions and sulfur datasets in order to explore this.
 
-```{r, message=FALSE}
+```{r, message=FALSE, include=FALSE}
 library(here)
 library(ggplot2)
 library(tidyverse)
