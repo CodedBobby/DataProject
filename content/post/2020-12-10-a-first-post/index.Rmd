@@ -22,10 +22,10 @@ knitr::opts_chunk$set(echo = TRUE, tidy = TRUE)
 ```
 
 ```{r}
-dat1<-read.csv(here::here("data","volcano.csv"))
-dat2<-read.csv(here::here("data","eruptions.csv"))
-dat3<-read.csv(here::here("data","events.csv"))
-dat4<-read.csv(here::here("data","sulfur.csv"))
+dat1<-read.csv(here::here("content","post","2020-12-10-a-first-post","data","volcano.csv"))
+dat2<-read.csv(here::here("content","post","2020-12-10-a-first-post","data","eruptions.csv"))
+dat3<-read.csv(here::here("content","post","2020-12-10-a-first-post","data","events.csv"))
+dat4<-read.csv(here::here("content","post","2020-12-10-a-first-post","data","sulfur.csv"))
 ```
 
 # Question 1:
