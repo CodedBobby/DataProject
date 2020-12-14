@@ -19,7 +19,7 @@ library(dplyr)
 knitr::opts_chunk$set(echo = TRUE, tidy = TRUE)
 ```
 
-```{r}
+```{r, include=FALSE}
 Rainfall<-read.csv(here::here("content","post","2020-12-13-australia-fires","data","rainfall.csv"))
 Temperature<-read.csv(here::here("content","post","2020-12-13-australia-fires","data","temperature.csv"))
 Fires<-read.csv(here::here("content","post","2020-12-13-australia-fires","data","MODIS_C6_Australia_and_New_Zealand_7d.csv"))
@@ -45,8 +45,11 @@ Fires %>%
   geom_bar(stat="identity")+
   ylab("Number of nearby fires")+
   xlab("City")+
-  ggtitle("Number of fires vs Nearby Cities")
+  ggtitle("Number of Nearby Fires vs Cities")
 ```
+
+For every city except three, there were no fires near them.
+
 # Question 2:
 Where have fires happened the most? To determine this, I will round the longitudes and latitudes of all fires to two decimal places and count the 10 areas with the highest number of fires.
 ```{r}
@@ -76,4 +79,4 @@ Fires %>%
   ggtitle("Number of Fires over time")
 ```
 
-The amount of fires is mostly consistent, but there's a sharp drop in the number of fires on the seventh day.
+The amount of fires is mostly consistent with a spike on the second and seventh day, but there's a very sharp drop in the number of fires on the eigth day.

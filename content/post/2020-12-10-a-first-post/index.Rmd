@@ -21,7 +21,7 @@ library(dplyr)
 knitr::opts_chunk$set(echo = TRUE, tidy = TRUE)
 ```
 
-```{r}
+```{r, include=FALSE}
 dat1<-read.csv(here::here("content","post","2020-12-10-a-first-post","data","volcano.csv"))
 dat2<-read.csv(here::here("content","post","2020-12-10-a-first-post","data","eruptions.csv"))
 dat3<-read.csv(here::here("content","post","2020-12-10-a-first-post","data","events.csv"))
@@ -59,7 +59,7 @@ dat1 %>%
   ggtitle("Location of Recently Erupted Volcanoes")
 ```
 # Question 3:
-What volcano has erupted the most often?
+What volcanoes have erupted the most often?
 ```{r}
 dat1 %>%
   left_join(dat2, by = c("volcano_number","volcano_name","longitude","latitude"))%>%
@@ -68,3 +68,4 @@ dat1 %>%
   ungroup()%>%
   slice_max(total, n = 10)
 ```
+
