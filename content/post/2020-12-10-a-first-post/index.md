@@ -2,7 +2,7 @@
 title: Volcano
 author: ~
 date: '2020-12-10'
-slug: Volcano
+slug: A-first-post
 categories: []
 tags: []
 ---
