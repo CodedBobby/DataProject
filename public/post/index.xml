@@ -6,15 +6,25 @@
     <description>Recent content in Posts on Bobby Slavin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 10 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>A first
-post</title>
+      <title>Australia Fires</title>
+      <link>/2020/12/13/australia-fires/</link>
+      <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/12/13/australia-fires/</guid>
+      <description>knitr::opts_chunk$set(echo = TRUE) library(here) library(ggplot2) library(tidyverse) library(readxl) library(dplyr) Rainfall&amp;lt;-read.csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;rainfall.csv&amp;quot;)) Temperature&amp;lt;-read.csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;temperature.csv&amp;quot;)) Fires&amp;lt;-read.csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;MODIS_C6_Australia_and_New_Zealand_7d.csv&amp;quot;)) Using the Australia fires data from tinytuesday I will investigate the location and frequency of the fires in Australia. I will use the rainfall and MODIS datasets to explore this.
+Question 1: How many of these fires happened near the cities? I will examine this by counting the number of instances of fires with longitude and latitude equal to the city coordinates rounded to 0 decimal places.</description>
+    </item>
+    
+    <item>
+      <title>Volcano</title>
       <link>/2020/12/10/a-first-post/</link>
       <pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>/2020/12/10/a-first-post/</guid>
-      <description></description>
+      <description>knitr::opts_chunk$set(echo = TRUE) Using the volcano data from tinytuesday I will investigate volcanic eruptions and the affect they have on the environment. I will use the volcano, eruptions and sulfur datasets in order to explore this.
+library(here) library(ggplot2) library(tidyverse) library(readxl) library(dplyr) knitr::opts_chunk$set(echo = TRUE, tidy = TRUE) dat1&amp;lt;-read.csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;volcano.csv&amp;quot;)) dat2&amp;lt;-read.csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;eruptions.csv&amp;quot;)) dat3&amp;lt;-read.csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;events.csv&amp;quot;)) dat4&amp;lt;-read.csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;sulfur.csv&amp;quot;)) Question 1: To what extent does a volcano eruption impact the atmosphere? To explore this I will attempt to determine the relation between major volcanic eruptions (defined here as any eruption with a vei of 4 or higher) and spikes in sulfur levels.</description>
     </item>
     
   </channel>

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.12.10)  10 DEC 2020 10:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.12.10)  13 DEC 2020 20:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -562,13 +562,13 @@ AED: lastpage setting LastPage
 {/home/bslavin/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./resum
 e-example.aux)
 Package rerunfilecheck Info: File `resume-example.out' has not changed.
-(rerunfilecheck)             Checksum: D0B54881D12BB966ECCEA09AC176793B;989.
+(rerunfilecheck)             Checksum: 89EFF6EF4D8C2F06DC61256FDE5D7E2A;1076.
  ) 
 Here is how much of TeX's memory you used:
- 13858 strings out of 481331
- 196978 string characters out of 5917526
- 524643 words of memory out of 5000000
- 30465 multiletter control sequences out of 15000+600000
+ 13862 strings out of 481331
+ 197018 string characters out of 5917526
+ 526643 words of memory out of 5000000
+ 30467 multiletter control sequences out of 15000+600000
  459536 words of font info for 62 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  80i,11n,85p,1026b,443s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -584,10 +584,10 @@ blic/lm/lmr8.pfb></home/bslavin/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.
 pfb></home/bslavin/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmri8.pfb></home/b
 slavin/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></home/bslavin/.T
 inyTeX/texmf-dist/fonts/type1/public/lm/lmtt9.pfb>
-Output written on resume-example.pdf (1 page, 195859 bytes).
+Output written on resume-example.pdf (1 page, 198472 bytes).
 PDF statistics:
- 97 PDF objects out of 1000 (max. 8388607)
- 84 compressed objects within 1 object stream
- 14 named destinations out of 1000 (max. 500000)
- 49 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 102 PDF objects out of 1000 (max. 8388607)
+ 89 compressed objects within 1 object stream
+ 16 named destinations out of 1000 (max. 500000)
+ 57 words of extra memory for PDF output out of 10000 (max. 10000000)
 

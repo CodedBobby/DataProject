@@ -6,10 +6,8 @@
 <meta name="generator" content="Hugo 0.79.0" />
 
 
-<title>A first
-post - Bobby Slavin</title>
-<meta property="og:title" content="A first
-post - Bobby Slavin">
+<title>Volcano - Bobby Slavin</title>
+<meta property="og:title" content="Volcano - Bobby Slavin">
 
 
   <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
@@ -21,6 +19,11 @@ post - Bobby Slavin">
 
 
 
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
 
 
 
@@ -57,18 +60,62 @@ post - Bobby Slavin">
 
   <article class="article">
     
-    <span class="article-duration">0 min read</span>
+    <span class="article-duration">1 min read</span>
     
 
-    <h1 class="article-title">A first
-post</h1>
+    <h1 class="article-title">Volcano</h1>
 
     
     <span class="article-date">2020-12-10</span>
     
 
     <div class="article-content">
-      
+      <pre><code class="language-{r" data-lang="{r">knitr::opts_chunk$set(echo = TRUE)
+</code></pre><p>Using the volcano data from tinytuesday I will investigate volcanic eruptions and the affect they have on the environment. I will use the volcano, eruptions and sulfur datasets in order to explore this.</p>
+<pre><code class="language-{r," data-lang="{r,">library(here)
+library(ggplot2)
+library(tidyverse)
+library(readxl)
+library(dplyr)
+knitr::opts_chunk$set(echo = TRUE, tidy = TRUE)
+</code></pre><pre><code class="language-{r}" data-lang="{r}">dat1&lt;-read.csv(here::here(&quot;data&quot;,&quot;volcano.csv&quot;))
+dat2&lt;-read.csv(here::here(&quot;data&quot;,&quot;eruptions.csv&quot;))
+dat3&lt;-read.csv(here::here(&quot;data&quot;,&quot;events.csv&quot;))
+dat4&lt;-read.csv(here::here(&quot;data&quot;,&quot;sulfur.csv&quot;))
+</code></pre><h1 id="question-1">Question 1:</h1>
+<p>To what extent does a volcano eruption impact the atmosphere? To explore this I will attempt to determine the relation between major volcanic eruptions (defined here as any eruption with a vei of 4 or higher) and spikes in sulfur levels.</p>
+<pre><code class="language-{r}" data-lang="{r}">filtered &lt;- dat1 %&gt;%
+  left_join(dat2, by = c(&quot;volcano_number&quot;,&quot;volcano_name&quot;,&quot;longitude&quot;,&quot;latitude&quot;))%&gt;%
+  filter(vei &gt;= 4, start_year &gt;= 500,start_year &lt;= 706)
+ggplot()+
+  geom_line(data=dat4, aes(year, neem, color = &quot;blue&quot;))+
+  geom_line(data=dat4, aes(year, wdc, color = &quot;red&quot;))+
+  geom_point(data=filtered, aes(start_year,0))+
+  scale_color_manual(name=&quot;Location of Ice Cores&quot;,labels=c(&quot;Greenland&quot;,&quot;Antartica&quot;),values=c(&quot;blue&quot;=&quot;blue&quot;,&quot;red&quot;=&quot;red&quot;))+
+  ylab(&quot;Sulfur (ng/g)&quot;)+
+  xlab(&quot;Year&quot;)+
+  ggtitle(&quot;Year vs Sulfur&quot;)
+</code></pre><h1 id="question-2">Question 2:</h1>
+<p>Are there any areas currently at risk from volcano eruptions?</p>
+<pre><code class="language-{r}" data-lang="{r}">dat1 %&gt;%
+  left_join(dat2, by = c(&quot;volcano_number&quot;,&quot;volcano_name&quot;,&quot;longitude&quot;,&quot;latitude&quot;))%&gt;%
+  group_by(volcano_name,volcano_number)%&gt;%
+  filter(start_year &gt;= 1800, start_year == max(start_year))%&gt;%
+  select(region,longitude,latitude)%&gt;%
+  ggplot(aes(longitude,latitude))+
+  geom_point()+
+  borders(&quot;world&quot;)+
+  coord_quickmap()+
+  ggtitle(&quot;Location of Recently Erupted Volcanoes&quot;)
+</code></pre><h1 id="question-3">Question 3:</h1>
+<p>What volcano has erupted the most often?</p>
+<pre><code class="language-{r}" data-lang="{r}">dat1 %&gt;%
+  left_join(dat2, by = c(&quot;volcano_number&quot;,&quot;volcano_name&quot;,&quot;longitude&quot;,&quot;latitude&quot;))%&gt;%
+  group_by(volcano_number,volcano_name)%&gt;%
+  summarize(total = n())%&gt;%
+  ungroup()%&gt;%
+  slice_max(total, n = 10)
+</code></pre>
     </div>
   </article>
 
@@ -91,7 +138,22 @@ post</h1>
     </div>
     
 
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
     
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 
     
   </body>
