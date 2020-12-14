@@ -2,7 +2,7 @@
 title: Volcano
 author: ~
 date: '2020-12-10'
-slug: a-first-post
+slug: Volcano
 categories: []
 tags: []
 ---
@@ -25,7 +25,8 @@ dat3<-read.csv(here::here("dataset","events.csv"))
 dat4<-read.csv(here::here("dataset","sulfur.csv"))
 ```
 
-Question 1: To what extent does a volcano eruption impact the atmosphere? To explore this I will attempt to determine the relation between major volcanic eruptions (defined here as any eruption with a vei of 4 or higher) and spikes in sulfur levels.
+# Question 1:
+To what extent does a volcano eruption impact the atmosphere? To explore this I will attempt to determine the relation between major volcanic eruptions (defined here as any eruption with a vei of 4 or higher) and spikes in sulfur levels.
 ```{r}
 filtered <- dat1 %>%
   left_join(dat2, by = c("volcano_number","volcano_name","longitude","latitude"))%>%
@@ -40,7 +41,8 @@ ggplot()+
   ggtitle("Year vs Sulfur")
 ```
 
-Question 2: Are there any areas currently at risk from volcano eruptions?
+# Question 2:
+Are there any areas currently at risk from volcano eruptions?
 ```{r}
 dat1 %>%
   left_join(dat2, by = c("volcano_number","volcano_name","longitude","latitude"))%>%
@@ -53,7 +55,8 @@ dat1 %>%
   coord_quickmap()+
   ggtitle("Location of Recently Erupted Volcanoes")
 ```
-Question 3: What volcano has erupted the most often?
+# Question 3:
+What volcano has erupted the most often?
 ```{r}
 dat1 %>%
   left_join(dat2, by = c("volcano_number","volcano_name","longitude","latitude"))%>%

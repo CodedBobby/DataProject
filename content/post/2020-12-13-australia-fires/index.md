@@ -14,6 +14,7 @@ knitr::opts_chunk$set(echo = TRUE, tidy = TRUE)
 ```
 Using the Australia fires data from tinytuesday I will investigate the location and frequency of the fires in Australia. I will use the rainfall and MODIS datasets to explore this.
 
+# Question 1:
 How many of these fires happened near the cities? I will examine this by counting the number of instances of fires with longitude and latitude equal to the city coordinates rounded to 0 decimal places.
 ```{r}
 CityCoord <- Rainfall %>%
@@ -34,6 +35,7 @@ Fires %>%
   xlab("City")+
   ggtitle("Number of fires vs Nearby Cities")
 ```
+# Question 2:
 Where have fires happened the most?
 ```{r}
 Fires %>%
@@ -47,7 +49,7 @@ Fires %>%
   coord_quickmap(xlim = 110:160,ylim = -50:-10)+
   geom_point()
 ```
-
+# Question 3:
 How has the frequency of fires changed over the 7 days?
 ```{r}
 Fires %>%
