@@ -6,11 +6,21 @@ slug: australia-fires
 categories: []
 tags: []
 ---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, message=FALSE}
+library(here)
+library(ggplot2)
+library(tidyverse)
+library(readxl)
+library(dplyr)
+```
 ```{r}
-Rainfall<-read.csv(here::here("dataset","2020-01-07","rainfall.csv"))
-Temperature<-read.csv(here::here("dataset","2020-01-07","temperature.csv"))
-Fires<-read.csv(here::here("dataset","2020-01-07","MODIS_C6_Australia_and_New_Zealand_7d.csv"))
-knitr::opts_chunk$set(echo = TRUE, tidy = TRUE)
+Rainfall<-read.csv(here::here("data","rainfall.csv"))
+Temperature<-read.csv(here::here("data","temperature.csv"))
+Fires<-read.csv(here::here("data","MODIS_C6_Australia_and_New_Zealand_7d.csv"))
 ```
 Using the Australia fires data from tinytuesday I will investigate the location and frequency of the fires in Australia. I will use the rainfall and MODIS datasets to explore this.
 
@@ -36,7 +46,7 @@ Fires %>%
   ggtitle("Number of fires vs Nearby Cities")
 ```
 # Question 2:
-Where have fires happened the most?
+Where have fires happened the most? To determine this, I will round the longitudes and latitudes of all fires to two decimal places and count the 10 areas with the highest number of fires.
 ```{r}
 Fires %>%
   mutate(longitude = round(longitude,digits=2),latitude=round(latitude,digits=2))%>%
@@ -49,8 +59,11 @@ Fires %>%
   coord_quickmap(xlim = 110:160,ylim = -50:-10)+
   geom_point()
 ```
+
+It seems the areas with the highest number of fires are all near the eastern coast of Australia.
+
 # Question 3:
-How has the frequency of fires changed over the 7 days?
+How has the frequency of fires changed over the 7 days? To determine this, I will create a line graph counting every instance of a fire over the days.
 ```{r}
 Fires %>%
   count(acq_date)%>%
@@ -60,3 +73,5 @@ Fires %>%
   xlab("Date")+
   ggtitle("Number of Fires over time")
 ```
+
+The amount of fires is mostly consistent, but there's a sharp drop in the number of fires on the seventh day.

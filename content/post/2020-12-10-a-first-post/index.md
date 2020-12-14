@@ -6,8 +6,11 @@ slug: A-first-post
 categories: []
 tags: []
 ---
-Using the volcano data from tinytuesday I will investigate volcanic eruptions and the affect they have on the environment. I will use the volcano, eruptions and sulfur datasets in order to explore this.
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
+Using the volcano data from tinytuesday I will investigate volcanic eruptions and the affect they have on the environment. I will use the volcano, eruptions and sulfur datasets in order to explore this.
 
 ```{r, message=FALSE}
 library(here)
@@ -19,10 +22,10 @@ knitr::opts_chunk$set(echo = TRUE, tidy = TRUE)
 ```
 
 ```{r}
-dat1<-read.csv(here::here("dataset","volcano.csv"))
-dat2<-read.csv(here::here("dataset","eruptions.csv"))
-dat3<-read.csv(here::here("dataset","events.csv"))
-dat4<-read.csv(here::here("dataset","sulfur.csv"))
+dat1<-read.csv(here::here("data","volcano.csv"))
+dat2<-read.csv(here::here("data","eruptions.csv"))
+dat3<-read.csv(here::here("data","events.csv"))
+dat4<-read.csv(here::here("data","sulfur.csv"))
 ```
 
 # Question 1:
