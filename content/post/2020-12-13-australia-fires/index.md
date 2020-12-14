@@ -10,6 +10,7 @@ tags: []
 Rainfall<-read.csv(here::here("dataset","2020-01-07","rainfall.csv"))
 Temperature<-read.csv(here::here("dataset","2020-01-07","temperature.csv"))
 Fires<-read.csv(here::here("dataset","2020-01-07","MODIS_C6_Australia_and_New_Zealand_7d.csv"))
+knitr::opts_chunk$set(echo = TRUE, tidy = TRUE)
 ```
 Using the Australia fires data from tinytuesday I will investigate the location and frequency of the fires in Australia. I will use the rainfall and MODIS datasets to explore this.
 

@@ -1,7 +1,5 @@
 ---
-title: |-
-  A first
-  post
+title: Volcano
 author: ~
 date: '2020-12-10'
 slug: a-first-post
@@ -17,7 +15,7 @@ library(ggplot2)
 library(tidyverse)
 library(readxl)
 library(dplyr)
-knitr::opts_chunk$set(echo = FALSE, tidy = TRUE)
+knitr::opts_chunk$set(echo = TRUE, tidy = TRUE)
 ```
 
 ```{r}
