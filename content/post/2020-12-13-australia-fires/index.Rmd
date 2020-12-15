@@ -24,7 +24,7 @@ Rainfall<-read.csv(here::here("content","post","2020-12-13-australia-fires","dat
 Temperature<-read.csv(here::here("content","post","2020-12-13-australia-fires","data","temperature.csv"))
 Fires<-read.csv(here::here("content","post","2020-12-13-australia-fires","data","MODIS_C6_Australia_and_New_Zealand_7d.csv"))
 ```
-Using the Australia fires data from tinytuesday I will investigate the location and frequency of the fires in Australia. I will use the rainfall and MODIS datasets to explore this.
+Using the Australia fires data from tinytuesday I will investigate the location and frequency of the fires in Australia. I will use the rainfall and MODIS datasets to explore this. The variables in the rainfall data are city_name, which is the name of the city where rainfall was measured, lat and long, which are the coordinates of the city, year, month and day, which together are the date the rainfall was measured on. The MODIS data has the latitude and longitude variables which show the coordinates of the fire's center and acq_date which is the date when the fire started over the 8 days measured.
 
 # Question 1:
 How many of these fires happened near the cities? I will examine this by counting the number of instances of fires with longitude and latitude equal to the city coordinates rounded to 0 decimal places.
@@ -48,7 +48,7 @@ Fires %>%
   ggtitle("Number of Nearby Fires vs Cities")
 ```
 
-For every city except three, there were no fires near them.
+There were only fires in three out of the six cities recorded, and it seems Sydney has by far the greatest risk of fires, having almost double the number of nearby fires than Perth and Melbourne.
 
 # Question 2:
 Where have fires happened the most? To determine this, I will round the longitudes and latitudes of all fires to two decimal places and count the 10 areas with the highest number of fires.
