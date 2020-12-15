@@ -48,7 +48,7 @@ Fires %>%
   ggtitle("Number of Nearby Fires vs Cities")
 ```
 
-There were only fires in three out of the six cities recorded, and it seems Sydney has by far the greatest risk of fires, having almost double the number of nearby fires than Perth and Melbourne.
+There were fires only in three out of the six cities recorded, and it seems Sydney has by far the greatest risk of fires, having almost double the number of nearby fires than Perth and Melbourne.
 
 # Question 2:
 Where have fires happened the most? To determine this, I will round the longitudes and latitudes of all fires to two decimal places and count the 10 areas with the highest number of fires.
@@ -79,4 +79,4 @@ Fires %>%
   ggtitle("Number of Fires over time")
 ```
 
-The amount of fires is mostly consistent with a spike on the second and seventh day, but there's a very sharp drop in the number of fires on the eigth day.
+The amount of fires is mostly consistent with a spike on the second and seventh day, but there's a very sharp drop in the number of fires on the eighth day.

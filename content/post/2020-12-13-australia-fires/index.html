@@ -26,7 +26,7 @@ tags: []
     count(city_name) %&gt;% ggplot(aes(city_name, n)) + geom_bar(stat = &quot;identity&quot;) + 
     ylab(&quot;Number of nearby fires&quot;) + xlab(&quot;City&quot;) + ggtitle(&quot;Number of Nearby Fires vs Cities&quot;)</code></pre>
 <p><img src="index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<p>There were only fires in three out of the six cities recorded, and it seems Sydney has by far the greatest risk of fires, having almost double the number of nearby fires than Perth and Melbourne.</p>
+<p>There were fires only in three out of the six cities recorded, and it seems Sydney has by far the greatest risk of fires, having almost double the number of nearby fires than Perth and Melbourne.</p>
 </div>
 <div id="question-2" class="section level1">
 <h1>Question 2:</h1>
@@ -45,5 +45,5 @@ tags: []
 <pre class="r"><code>Fires %&gt;% count(acq_date) %&gt;% ggplot(aes(acq_date, n)) + geom_line(group = 1) + ylab(&quot;Number of Fires&quot;) + 
     xlab(&quot;Date&quot;) + ggtitle(&quot;Number of Fires over time&quot;)</code></pre>
 <p><img src="index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p>The amount of fires is mostly consistent with a spike on the second and seventh day, but there’s a very sharp drop in the number of fires on the eigth day.</p>
+<p>The amount of fires is mostly consistent with a spike on the second and seventh day, but there’s a very sharp drop in the number of fires on the eighth day.</p>
 </div>
