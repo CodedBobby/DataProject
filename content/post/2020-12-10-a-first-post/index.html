@@ -23,13 +23,19 @@ dat4 &lt;- read.csv(here::here(&quot;content&quot;, &quot;post&quot;, &quot;2020
 <div id="question-1" class="section level1">
 <h1>Question 1:</h1>
 <p>To what extent does a volcano eruption impact the atmosphere? To explore this I will attempt to determine the relation between major volcanic eruptions (defined here as any eruption with a vei of 4 or higher) and spikes in sulfur levels.</p>
-<pre class="r"><code>filtered &lt;- dat1 %&gt;% left_join(dat2, by = c(&quot;volcano_number&quot;, &quot;volcano_name&quot;, &quot;longitude&quot;, 
-    &quot;latitude&quot;)) %&gt;% filter(vei &gt;= 4, start_year &gt;= 500, start_year &lt;= 706)
-ggplot() + geom_line(data = dat4, aes(year, neem, color = &quot;blue&quot;)) + geom_line(data = dat4, 
-    aes(year, wdc, color = &quot;red&quot;)) + geom_point(data = filtered, aes(start_year, 
-    0)) + scale_color_manual(name = &quot;Location of Ice Cores&quot;, labels = c(&quot;Greenland&quot;, 
-    &quot;Antartica&quot;), values = c(blue = &quot;blue&quot;, red = &quot;red&quot;)) + ylab(&quot;Sulfur (ng/g)&quot;) + 
-    xlab(&quot;Year&quot;) + ggtitle(&quot;Year vs Sulfur&quot;)</code></pre>
+<pre class="r"><code>filtered &lt;- dat1 %&gt;% 
+left_join(dat2, by = c(&quot;volcano_number&quot;, &quot;volcano_name&quot;, &quot;longitude&quot;, &quot;latitude&quot;)) %&gt;% 
+    
+filter(vei &gt;= 4, start_year &gt;= 500, start_year &lt;= 706)
+ggplot() + 
+geom_line(data = dat4, aes(year, neem, color = &quot;blue&quot;)) + 
+geom_line(data = dat4, aes(year, wdc, color = &quot;red&quot;)) + 
+geom_point(data = filtered, aes(start_year, 0)) + 
+scale_color_manual(name = &quot;Location of Ice Cores&quot;, labels = c(&quot;Greenland&quot;, &quot;Antartica&quot;), 
+    values = c(blue = &quot;blue&quot;, red = &quot;red&quot;)) + 
+ylab(&quot;Sulfur (ng/g)&quot;) + 
+xlab(&quot;Year&quot;) + 
+ggtitle(&quot;Year vs Sulfur&quot;)</code></pre>
 <pre><code>## Warning: Removed 290 rows containing missing values (geom_path).
 
 ## Warning: Removed 290 rows containing missing values (geom_path).</code></pre>
@@ -55,9 +61,13 @@ ggtitle(&quot;Location of Recently Erupted Volcanoes&quot;)</code></pre>
 <div id="question-3" class="section level1">
 <h1>Question 3:</h1>
 <p>What volcanoes have erupted the most often?</p>
-<pre class="r"><code>dat1 %&gt;% left_join(dat2, by = c(&quot;volcano_number&quot;, &quot;volcano_name&quot;, &quot;longitude&quot;, &quot;latitude&quot;)) %&gt;% 
-    group_by(volcano_number, volcano_name) %&gt;% summarize(total = n()) %&gt;% ungroup() %&gt;% 
-    slice_max(total, n = 10)</code></pre>
+<pre class="r"><code>dat1 %&gt;% 
+left_join(dat2, by = c(&quot;volcano_number&quot;, &quot;volcano_name&quot;, &quot;longitude&quot;, &quot;latitude&quot;)) %&gt;% 
+    
+group_by(volcano_number, volcano_name) %&gt;% 
+summarize(total = n()) %&gt;% 
+ungroup() %&gt;% 
+slice_max(total, n = 10)</code></pre>
 <pre><code>## `summarise()` regrouping output by &#39;volcano_number&#39; (override with `.groups` argument)</code></pre>
 <pre><code>## # A tibble: 10 x 3
 ##    volcano_number volcano_name           total

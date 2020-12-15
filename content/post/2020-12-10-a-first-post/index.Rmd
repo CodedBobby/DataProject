@@ -31,15 +31,24 @@ dat4<-read.csv(here::here("content","post","2020-12-10-a-first-post","data","sul
 To what extent does a volcano eruption impact the atmosphere? To explore this I will attempt to determine the relation between major volcanic eruptions (defined here as any eruption with a vei of 4 or higher) and spikes in sulfur levels.
 ```{r}
 filtered <- dat1 %>%
+  
   left_join(dat2, by = c("volcano_number","volcano_name","longitude","latitude"))%>%
+  
   filter(vei >= 4, start_year >= 500,start_year <= 706)
 ggplot()+
+  
   geom_line(data=dat4, aes(year, neem, color = "blue"))+
+  
   geom_line(data=dat4, aes(year, wdc, color = "red"))+
+  
   geom_point(data=filtered, aes(start_year,0))+
+  
   scale_color_manual(name="Location of Ice Cores",labels=c("Greenland","Antartica"),values=c("blue"="blue","red"="red"))+
+  
   ylab("Sulfur (ng/g)")+
+  
   xlab("Year")+
+  
   ggtitle("Year vs Sulfur")
 ```
 
@@ -71,10 +80,15 @@ dat1 %>%
 What volcanoes have erupted the most often?
 ```{r}
 dat1 %>%
+  
   left_join(dat2, by = c("volcano_number","volcano_name","longitude","latitude"))%>%
+  
   group_by(volcano_number,volcano_name)%>%
+  
   summarize(total = n())%>%
+  
   ungroup()%>%
+  
   slice_max(total, n = 10)
 ```
 

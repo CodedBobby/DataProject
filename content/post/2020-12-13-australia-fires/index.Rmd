@@ -19,32 +19,49 @@ library(readxl)
 library(dplyr)
 ```
 
+Using the Australia fires data from tinytuesday I will investigate the location and frequency of the fires in Australia. I will use the rainfall and MODIS datasets to explore this. The variables in the rainfall data are city_name, which is the name of the city where rainfall was measured, lat and long, which are the coordinates of the city, year, month and day, which together are the date the rainfall was measured on. The MODIS data has the latitude and longitude variables which show the coordinates of the fire's center and acq_date which is the date when the fire started over the 8 days measured.
+
 ```{r}
 Rainfall<-read.csv(here::here("content","post","2020-12-13-australia-fires","data","rainfall.csv"))
 Temperature<-read.csv(here::here("content","post","2020-12-13-australia-fires","data","temperature.csv"))
 Fires<-read.csv(here::here("content","post","2020-12-13-australia-fires","data","MODIS_C6_Australia_and_New_Zealand_7d.csv"))
 ```
-Using the Australia fires data from tinytuesday I will investigate the location and frequency of the fires in Australia. I will use the rainfall and MODIS datasets to explore this. The variables in the rainfall data are city_name, which is the name of the city where rainfall was measured, lat and long, which are the coordinates of the city, year, month and day, which together are the date the rainfall was measured on. The MODIS data has the latitude and longitude variables which show the coordinates of the fire's center and acq_date which is the date when the fire started over the 8 days measured.
 
 # Question 1:
 How many of these fires happened near the cities? I will examine this by counting the number of instances of fires with longitude and latitude equal to the city coordinates rounded to 0 decimal places.
 ```{r}
 CityCoord <- Rainfall %>%
+  
   select(city_name,lat,long)%>%
+  
   rename(longitude=long,latitude=lat)%>%
+  
   mutate(longitude = round(longitude,digits=0),latitude=round(latitude,digits=0))%>%
+  
   group_by(city_name)%>%
+  
   summarize(latitude=mean(latitude),longitude=mean(longitude))%>%
+  
   mutate(longitude = round(longitude,digits=0),latitude=round(latitude,digits=0))
+
 Fires %>%
+  
   mutate(longitude = round(longitude,digits=0),latitude=round(latitude,digits=0))%>%
+  
   left_join(CityCoord,by = c("longitude","latitude"))%>%
+  
   na.omit(city_name)%>%
+  
   count(city_name)%>%
+  
   ggplot(aes(city_name,n))+
+  
   geom_bar(stat="identity")+
+  
   ylab("Number of nearby fires")+
+  
   xlab("City")+
+  
   ggtitle("Number of Nearby Fires vs Cities")
 ```
 
@@ -54,14 +71,23 @@ There were fires only in three out of the six cities recorded, and it seems Sydn
 Where have fires happened the most? To determine this, I will round the longitudes and latitudes of all fires to two decimal places and count the 10 areas with the highest number of fires.
 ```{r}
 Fires %>%
+  
   mutate(longitude = round(longitude,digits=2),latitude=round(latitude,digits=2))%>%
+  
   group_by(longitude,latitude)%>%
+  
   summarize(total = n())%>%
+  
   ungroup()%>%
+  
   slice_max(total, n = 10)%>%
+  
   ggplot(aes(longitude,latitude))+
+  
   borders("world")+
+  
   coord_quickmap(xlim = 110:160,ylim = -50:-10)+
+  
   geom_point()
 ```
 
@@ -71,11 +97,17 @@ It seems the areas with the highest number of fires are all near the eastern coa
 How has the frequency of fires changed over the 8 days? To determine this, I will create a line graph counting every instance of a fire over the days.
 ```{r}
 Fires %>%
+  
   count(acq_date)%>%
+  
   ggplot(aes(acq_date,n))+
+  
   geom_line(group = 1)+
+  
   ylab("Number of Fires")+
+  
   xlab("Date")+
+  
   ggtitle("Number of Fires over time")
 ```
 
