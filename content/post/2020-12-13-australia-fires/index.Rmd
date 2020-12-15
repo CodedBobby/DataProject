@@ -68,7 +68,7 @@ Fires %>%
 It seems the areas with the highest number of fires are all near the eastern coast of Australia.
 
 # Question 3:
-How has the frequency of fires changed over the 7 days? To determine this, I will create a line graph counting every instance of a fire over the days.
+How has the frequency of fires changed over the 8 days? To determine this, I will create a line graph counting every instance of a fire over the days.
 ```{r}
 Fires %>%
   count(acq_date)%>%

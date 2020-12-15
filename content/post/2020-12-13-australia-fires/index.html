@@ -41,7 +41,7 @@ tags: []
 </div>
 <div id="question-3" class="section level1">
 <h1>Question 3:</h1>
-<p>How has the frequency of fires changed over the 7 days? To determine this, I will create a line graph counting every instance of a fire over the days.</p>
+<p>How has the frequency of fires changed over the 8 days? To determine this, I will create a line graph counting every instance of a fire over the days.</p>
 <pre class="r"><code>Fires %&gt;% count(acq_date) %&gt;% ggplot(aes(acq_date, n)) + geom_line(group = 1) + ylab(&quot;Number of Fires&quot;) + 
     xlab(&quot;Date&quot;) + ggtitle(&quot;Number of Fires over time&quot;)</code></pre>
 <p><img src="index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
