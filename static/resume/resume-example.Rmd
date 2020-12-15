@@ -39,9 +39,6 @@ photobigness: 1.75cm
 
 :::::: {.columns}
 ::: {.column width="60%" data-latex="{0.60\textwidth}"}
-# About Me
-- I graduated from Central High School in Little Rock, Arkansas in 2020 and am currently studying in the University of Arkansas.
-- I enjoy watching movies if I have any free time.
 
 # Professional Experience
 
