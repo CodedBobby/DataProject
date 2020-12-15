@@ -58,6 +58,7 @@ dat1 %>%
   coord_quickmap()+
   ggtitle("Location of Recently Erupted Volcanoes")
 ```
+
 # Question 3:
 What volcanoes have erupted the most often?
 ```{r}
