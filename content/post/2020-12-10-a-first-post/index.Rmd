@@ -7,7 +7,7 @@ categories: []
 tags: []
 ---
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, tidy = TRUE)
 ```
 
 Using the volcano data from tinytuesday I will investigate volcanic eruptions and the affect they have on the environment. I will use the volcano, eruptions and sulfur datasets in order to explore this.
@@ -18,10 +18,9 @@ library(ggplot2)
 library(tidyverse)
 library(readxl)
 library(dplyr)
-knitr::opts_chunk$set(echo = TRUE, tidy = TRUE)
 ```
 
-```{r, include=FALSE}
+```{r}
 dat1<-read.csv(here::here("content","post","2020-12-10-a-first-post","data","volcano.csv"))
 dat2<-read.csv(here::here("content","post","2020-12-10-a-first-post","data","eruptions.csv"))
 dat3<-read.csv(here::here("content","post","2020-12-10-a-first-post","data","events.csv"))
@@ -48,14 +47,23 @@ ggplot()+
 Are there any areas currently at risk from volcano eruptions?
 ```{r}
 dat1 %>%
+  
   left_join(dat2, by = c("volcano_number","volcano_name","longitude","latitude"))%>%
+  
   group_by(volcano_name,volcano_number)%>%
+  
   filter(start_year >= 1800, start_year == max(start_year))%>%
+  
   select(region,longitude,latitude)%>%
+  
   ggplot(aes(longitude,latitude))+
+  
   geom_point()+
+  
   borders("world")+
+  
   coord_quickmap()+
+  
   ggtitle("Location of Recently Erupted Volcanoes")
 ```
 

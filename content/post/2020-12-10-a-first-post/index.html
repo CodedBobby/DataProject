@@ -12,6 +12,14 @@ tags: []
 
 
 <p>Using the volcano data from tinytuesday I will investigate volcanic eruptions and the affect they have on the environment. I will use the volcano, eruptions and sulfur datasets in order to explore this.</p>
+<pre class="r"><code>dat1 &lt;- read.csv(here::here(&quot;content&quot;, &quot;post&quot;, &quot;2020-12-10-a-first-post&quot;, &quot;data&quot;, 
+    &quot;volcano.csv&quot;))
+dat2 &lt;- read.csv(here::here(&quot;content&quot;, &quot;post&quot;, &quot;2020-12-10-a-first-post&quot;, &quot;data&quot;, 
+    &quot;eruptions.csv&quot;))
+dat3 &lt;- read.csv(here::here(&quot;content&quot;, &quot;post&quot;, &quot;2020-12-10-a-first-post&quot;, &quot;data&quot;, 
+    &quot;events.csv&quot;))
+dat4 &lt;- read.csv(here::here(&quot;content&quot;, &quot;post&quot;, &quot;2020-12-10-a-first-post&quot;, &quot;data&quot;, 
+    &quot;sulfur.csv&quot;))</code></pre>
 <div id="question-1" class="section level1">
 <h1>Question 1:</h1>
 <p>To what extent does a volcano eruption impact the atmosphere? To explore this I will attempt to determine the relation between major volcanic eruptions (defined here as any eruption with a vei of 4 or higher) and spikes in sulfur levels.</p>
@@ -30,10 +38,17 @@ ggplot() + geom_line(data = dat4, aes(year, neem, color = &quot;blue&quot;)) + g
 <div id="question-2" class="section level1">
 <h1>Question 2:</h1>
 <p>Are there any areas currently at risk from volcano eruptions?</p>
-<pre class="r"><code>dat1 %&gt;% left_join(dat2, by = c(&quot;volcano_number&quot;, &quot;volcano_name&quot;, &quot;longitude&quot;, &quot;latitude&quot;)) %&gt;% 
-    group_by(volcano_name, volcano_number) %&gt;% filter(start_year &gt;= 1800, start_year == 
-    max(start_year)) %&gt;% select(region, longitude, latitude) %&gt;% ggplot(aes(longitude, 
-    latitude)) + geom_point() + borders(&quot;world&quot;) + coord_quickmap() + ggtitle(&quot;Location of Recently Erupted Volcanoes&quot;)</code></pre>
+<pre class="r"><code>dat1 %&gt;% 
+left_join(dat2, by = c(&quot;volcano_number&quot;, &quot;volcano_name&quot;, &quot;longitude&quot;, &quot;latitude&quot;)) %&gt;% 
+    
+group_by(volcano_name, volcano_number) %&gt;% 
+filter(start_year &gt;= 1800, start_year == max(start_year)) %&gt;% 
+select(region, longitude, latitude) %&gt;% 
+ggplot(aes(longitude, latitude)) + 
+geom_point() + 
+borders(&quot;world&quot;) + 
+coord_quickmap() + 
+ggtitle(&quot;Location of Recently Erupted Volcanoes&quot;)</code></pre>
 <pre><code>## Adding missing grouping variables: `volcano_name`, `volcano_number`</code></pre>
 <p><img src="index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>

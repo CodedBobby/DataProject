@@ -11,6 +11,12 @@ tags: []
 <script src="index_files/anchor-sections/anchor-sections.js"></script>
 
 
+<pre class="r"><code>Rainfall &lt;- read.csv(here::here(&quot;content&quot;, &quot;post&quot;, &quot;2020-12-13-australia-fires&quot;, 
+    &quot;data&quot;, &quot;rainfall.csv&quot;))
+Temperature &lt;- read.csv(here::here(&quot;content&quot;, &quot;post&quot;, &quot;2020-12-13-australia-fires&quot;, 
+    &quot;data&quot;, &quot;temperature.csv&quot;))
+Fires &lt;- read.csv(here::here(&quot;content&quot;, &quot;post&quot;, &quot;2020-12-13-australia-fires&quot;, &quot;data&quot;, 
+    &quot;MODIS_C6_Australia_and_New_Zealand_7d.csv&quot;))</code></pre>
 <p>Using the Australia fires data from tinytuesday I will investigate the location and frequency of the fires in Australia. I will use the rainfall and MODIS datasets to explore this. The variables in the rainfall data are city_name, which is the name of the city where rainfall was measured, lat and long, which are the coordinates of the city, year, month and day, which together are the date the rainfall was measured on. The MODIS data has the latitude and longitude variables which show the coordinates of the fire’s center and acq_date which is the date when the fire started over the 8 days measured.</p>
 <div id="question-1" class="section level1">
 <h1>Question 1:</h1>
