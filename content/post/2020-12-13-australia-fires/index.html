@@ -43,23 +43,54 @@ xlab(&quot;City&quot;) +
 ggtitle(&quot;Number of Nearby Fires vs Cities&quot;)</code></pre>
 <p><img src="index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>There were fires only in three out of the six cities recorded, and it seems Sydney has by far the greatest number of nearby fires, having almost double the number of Perth and Melbourne.</p>
+<p>Fires %&gt;%</p>
+<p>mutate(longitude = round(longitude,digits=1),latitude=round(latitude,digits=1))%&gt;%</p>
+<p>group_by(longitude,latitude)%&gt;%</p>
+<p>summarize(total = n())%&gt;%</p>
+<p>ungroup()%&gt;%</p>
+<p>slice_max(total, n = 20)%&gt;%</p>
+<p>ggplot(aes(longitude,latitude))+</p>
+<p>borders(“world”)+</p>
+<p>coord_quickmap(xlim = 145:155,ylim = -38:-20)+</p>
+<p>geom_point(position = “dodge”)</p>
 </div>
 <div id="question-2" class="section level1">
 <h1>Question 2:</h1>
 <p>Where have fires happened the most? To determine this, I will round the longitudes and latitudes of all fires to two decimal places and count the 10 areas with the highest number of fires.</p>
 <pre class="r"><code>Fires %&gt;% 
-mutate(longitude = round(longitude, digits = 2), latitude = round(latitude, digits = 2)) %&gt;% 
+mutate(longitude = round(longitude, digits = 1), latitude = round(latitude, digits = 1)) %&gt;% 
     
 group_by(longitude, latitude) %&gt;% 
 summarize(total = n()) %&gt;% 
 ungroup() %&gt;% 
-slice_max(total, n = 10) %&gt;% 
-ggplot(aes(longitude, latitude)) + 
+slice_max(total, n = 20) %&gt;% 
+ggplot(aes(longitude, latitude, color = total)) + 
 borders(&quot;world&quot;) + 
-coord_quickmap(xlim = 110:160, ylim = -50:-10) + 
-geom_point()</code></pre>
-<pre><code>## `summarise()` regrouping output by &#39;longitude&#39; (override with `.groups` argument)</code></pre>
+coord_quickmap(xlim = 113:155, ylim = -38:-10) + 
+geom_point(position = &quot;jitter&quot;)</code></pre>
 <p><img src="index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code>Fires %&gt;% 
+mutate(longitude = round(longitude, digits = 1), latitude = round(latitude, digits = 1)) %&gt;% 
+    
+group_by(longitude, latitude) %&gt;% 
+summarize(total = n()) %&gt;% 
+ungroup() %&gt;% 
+slice_max(total, n = 20) %&gt;% 
+rename(`Total Fires In Area` = &quot;total&quot;)</code></pre>
+<pre><code>## # A tibble: 21 x 3
+##    longitude latitude `Total Fires In Area`
+##        &lt;dbl&gt;    &lt;dbl&gt;                 &lt;int&gt;
+##  1      150.    -32.7                   279
+##  2      150.    -32.6                   207
+##  3      151.    -32.7                   185
+##  4      148     -35.5                   183
+##  5      148     -35.4                   181
+##  6      148.    -37.1                   179
+##  7      149.    -25.4                   179
+##  8      150.    -34.3                   172
+##  9      150.    -32.6                   169
+## 10      124.    -32.4                   163
+## # … with 11 more rows</code></pre>
 <p>It seems the areas with the highest number of fires are all near the eastern coast of Australia.</p>
 </div>
 <div id="question-3" class="section level1">

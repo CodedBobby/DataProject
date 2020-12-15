@@ -17,6 +17,7 @@ library(ggplot2)
 library(tidyverse)
 library(readxl)
 library(dplyr)
+library(patchwork)
 ```
 
 Using the Australia fires data from tinytuesday I will investigate the location and frequency of the fires in Australia. I will use the rainfall and MODIS datasets to explore this. The variables in the rainfall data are city_name, which is the name of the city where rainfall was measured, lat and long, which are the coordinates of the city, year, month and day, which together are the date the rainfall was measured on. The MODIS data has the latitude and longitude variables which show the coordinates of the fire's center and acq_date which is the date when the fire started over the 8 days measured.
@@ -67,12 +68,9 @@ Fires %>%
 
 There were fires only in three out of the six cities recorded, and it seems Sydney has by far the greatest number of nearby fires, having almost double the number of Perth and Melbourne.
 
-# Question 2:
-Where have fires happened the most? To determine this, I will round the longitudes and latitudes of all fires to two decimal places and count the 10 areas with the highest number of fires.
-```{r}
 Fires %>%
   
-  mutate(longitude = round(longitude,digits=2),latitude=round(latitude,digits=2))%>%
+  mutate(longitude = round(longitude,digits=1),latitude=round(latitude,digits=1))%>%
   
   group_by(longitude,latitude)%>%
   
@@ -80,15 +78,53 @@ Fires %>%
   
   ungroup()%>%
   
-  slice_max(total, n = 10)%>%
+  slice_max(total, n = 20)%>%
   
   ggplot(aes(longitude,latitude))+
   
   borders("world")+
   
-  coord_quickmap(xlim = 110:160,ylim = -50:-10)+
+  coord_quickmap(xlim = 145:155,ylim = -38:-20)+
   
-  geom_point()
+  geom_point(position = "dodge")
+
+
+# Question 2:
+Where have fires happened the most? To determine this, I will round the longitudes and latitudes of all fires to two decimal places and count the 10 areas with the highest number of fires.
+```{r, message=FALSE}
+Fires %>%
+  
+  mutate(longitude = round(longitude,digits=1),latitude=round(latitude,digits=1))%>%
+  
+  group_by(longitude,latitude)%>%
+  
+  summarize(total = n())%>%
+  
+  ungroup()%>%
+  
+  slice_max(total, n = 20)%>%
+  
+  ggplot(aes(longitude,latitude,color=total))+
+  
+  borders("world")+
+  
+  coord_quickmap(xlim = 113:155,ylim = -38:-10)+
+  
+  geom_point(position = "jitter")
+
+Fires %>%
+  
+  mutate(longitude = round(longitude,digits=1),latitude=round(latitude,digits=1))%>%
+  
+  group_by(longitude,latitude)%>%
+  
+  summarize(total = n())%>%
+  
+  ungroup()%>%
+  
+  slice_max(total, n = 20)%>%
+  
+  rename("Total Fires In Area" = "total")
 ```
 
 It seems the areas with the highest number of fires are all near the eastern coast of Australia.
