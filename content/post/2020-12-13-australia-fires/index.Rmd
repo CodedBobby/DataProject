@@ -20,7 +20,7 @@ library(dplyr)
 library(patchwork)
 ```
 
-Using the Australia fires data from tinytuesday I will investigate the location and frequency of the fires in Australia. I will use the rainfall and MODIS datasets to explore this. The variables in the rainfall data are city_name, which is the name of the city where rainfall was measured, lat and long, which are the coordinates of the city, year, month and day, which together are the date the rainfall was measured on. The MODIS data has the latitude and longitude variables which show the coordinates of the fire's center and acq_date which is the date when the fire started over the 8 days measured.
+Using the Australia fires data from tinytuesday I will investigate the location and frequency of the fires in Australia. I will use the rainfall and MODIS datasets to explore this. The variables in the rainfall data are city_name, which is the name of the city where rainfall was measured, lat and long, which are the coordinates of the city, year, month and day, which together are the date the rainfall was measured on. The MODIS data has the latitude and longitude variables which show the coordinates of the fire's center, acq_date which is the date when the fire started over the 8 days measured and confidence which is the percent chance that the point recorded is actually a fire.
 
 ```{r}
 Rainfall<-read.csv(here::here("content","post","2020-12-13-australia-fires","data","rainfall.csv"))
@@ -68,26 +68,6 @@ Fires %>%
 
 There were fires only in three out of the six cities recorded, and it seems Sydney has by far the greatest number of nearby fires, having almost double the number of Perth and Melbourne.
 
-Fires %>%
-  
-  mutate(longitude = round(longitude,digits=1),latitude=round(latitude,digits=1))%>%
-  
-  group_by(longitude,latitude)%>%
-  
-  summarize(total = n())%>%
-  
-  ungroup()%>%
-  
-  slice_max(total, n = 20)%>%
-  
-  ggplot(aes(longitude,latitude))+
-  
-  borders("world")+
-  
-  coord_quickmap(xlim = 145:155,ylim = -38:-20)+
-  
-  geom_point(position = "dodge")
-
 
 # Question 2:
 Where have fires happened the most? To determine this, I will round the longitudes and latitudes of all fires to two decimal places and count the 10 areas with the highest number of fires.
@@ -104,13 +84,21 @@ Fires %>%
   
   slice_max(total, n = 20)%>%
   
-  ggplot(aes(longitude,latitude,color=total))+
+  rename("TotalFires" = "total")%>%
+  
+  ggplot(aes(longitude,latitude,color=TotalFires))+
   
   borders("world")+
   
   coord_quickmap(xlim = 113:155,ylim = -38:-10)+
   
-  geom_point(position = "jitter")
+  geom_point(position="jitter")+
+  
+  guides(size = FALSE)+
+  
+  scale_color_gradient(low="blue",high="red")+
+  
+  ggtitle("Areas With the Heaviest Concentration of Fires")
 
 Fires %>%
   
@@ -130,9 +118,13 @@ Fires %>%
 It seems the areas with the highest number of fires are all near the eastern coast of Australia.
 
 # Question 3:
-How has the frequency of fires changed over the 8 days? To determine this, I will create a line graph counting every instance of a fire over the days.
+How has the frequency of fires changed over the 8 days, and is there any difference between the frequency of fires during the day and during the night? To determine this, I will create a line graph counting every instance of a fire over the days and faceting it based on whether it happened during the day or during the night. One thing to note however is that, as indicated by the confidence variable ranging from 0% to 100%, it is possible that some of the fire detections by the satellite listed in the data are not actually fires, so I will also make a graph for only fire detections above 50% confidence and at 100% confidence to see if there's any variation between them.
 ```{r}
+levels(Fires$daynight) <- c("Day", "Night")
+
 Fires %>%
+  
+  group_by(daynight)%>%
   
   count(acq_date)%>%
   
@@ -144,7 +136,55 @@ Fires %>%
   
   xlab("Date")+
   
-  ggtitle("Number of Fires over time")
+  ggtitle("Number of Fires over time (All)")+
+  
+  facet_wrap(~ daynight)+
+  
+  theme(axis.text.x = element_text(angle = -45,hjust=-.1))
+
+Fires %>%
+  
+  filter(confidence >= 50)%>%
+  
+  group_by(daynight)%>%
+  
+  count(acq_date)%>%
+  
+  ggplot(aes(acq_date,n))+
+  
+  geom_line(group = 1)+
+  
+  ylab("Number of Fires")+
+  
+  xlab("Date")+
+  
+  ggtitle("Number of Fires over time (50% and above Confidence)")+
+  
+  facet_wrap(~ daynight)+
+  
+  theme(axis.text.x = element_text(angle = -45,hjust=-.1))
+
+Fires %>%
+  
+  filter(confidence >= 100)%>%
+  
+  group_by(daynight)%>%
+  
+  count(acq_date)%>%
+  
+  ggplot(aes(acq_date,n))+
+  
+  geom_line(group = 1)+
+  
+  ylab("Number of Fires")+
+  
+  xlab("Date")+
+  
+  ggtitle("Number of Fires over time (100% Confidence)")+
+  
+  facet_wrap(~ daynight)+
+  
+  theme(axis.text.x = element_text(angle = -45,hjust=-.1))
 ```
 
-The amount of fires is mostly consistent with a spike on the second and seventh day, but there's a very sharp drop in the number of fires on the eighth day.
+The amount of fires is mostly consistent with a spike on day two and day seven for nighttime and on the fifth and seventh day for daytime, but there's a very sharp drop in the number of fires for both daytime and nighttime on the eighth day. In addition, although different confidence levels change the total number of fires, the overall trend is the same for the three levels chosen.
