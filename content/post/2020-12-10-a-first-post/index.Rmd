@@ -10,7 +10,7 @@ tags: []
 knitr::opts_chunk$set(echo = TRUE, tidy = TRUE)
 ```
 
-Using the volcano data from tinytuesday I will investigate volcanic eruptions and the affect they have on the environment. I will use the volcano, eruptions and sulfur datasets in order to explore this.
+Using the volcano data from tinytuesday I will investigate volcanic eruptions and the affect they have on the environment. I will use the volcano, eruptions and sulfur datasets in order to explore this. The volcano dataset contains the variables 
 
 ```{r, message=FALSE, include=FALSE}
 library(here)
@@ -28,7 +28,7 @@ dat4<-read.csv(here::here("content","post","2020-12-10-a-first-post","data","sul
 ```
 
 # Question 1:
-To what extent does a volcano eruption impact the atmosphere? To explore this I will attempt to determine the relation between major volcanic eruptions (defined here as any eruption with a vei of 4 or higher) and spikes in sulfur levels.
+To what extent does a volcano eruption impact the atmosphere? To explore this I will attempt to determine the relation between major volcanic eruptions (defined here as any eruption with a vei of 4 or higher) and spikes in sulfur levels in both Greenland and Antartica.
 ```{r}
 filtered <- dat1 %>%
   

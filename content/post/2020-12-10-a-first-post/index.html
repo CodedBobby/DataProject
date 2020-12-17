@@ -11,7 +11,7 @@ tags: []
 <script src="index_files/anchor-sections/anchor-sections.js"></script>
 
 
-<p>Using the volcano data from tinytuesday I will investigate volcanic eruptions and the affect they have on the environment. I will use the volcano, eruptions and sulfur datasets in order to explore this.</p>
+<p>Using the volcano data from tinytuesday I will investigate volcanic eruptions and the affect they have on the environment. I will use the volcano, eruptions and sulfur datasets in order to explore this. The volcano dataset contains the variables</p>
 <pre class="r"><code>dat1 &lt;- read.csv(here::here(&quot;content&quot;, &quot;post&quot;, &quot;2020-12-10-a-first-post&quot;, &quot;data&quot;, 
     &quot;volcano.csv&quot;))
 dat2 &lt;- read.csv(here::here(&quot;content&quot;, &quot;post&quot;, &quot;2020-12-10-a-first-post&quot;, &quot;data&quot;, 
@@ -22,7 +22,7 @@ dat4 &lt;- read.csv(here::here(&quot;content&quot;, &quot;post&quot;, &quot;2020
     &quot;sulfur.csv&quot;))</code></pre>
 <div id="question-1" class="section level1">
 <h1>Question 1:</h1>
-<p>To what extent does a volcano eruption impact the atmosphere? To explore this I will attempt to determine the relation between major volcanic eruptions (defined here as any eruption with a vei of 4 or higher) and spikes in sulfur levels.</p>
+<p>To what extent does a volcano eruption impact the atmosphere? To explore this I will attempt to determine the relation between major volcanic eruptions (defined here as any eruption with a vei of 4 or higher) and spikes in sulfur levels in both Greenland and Antartica.</p>
 <pre class="r"><code>filtered &lt;- dat1 %&gt;% 
 left_join(dat2, by = c(&quot;volcano_number&quot;, &quot;volcano_name&quot;, &quot;longitude&quot;, &quot;latitude&quot;)) %&gt;% 
     
