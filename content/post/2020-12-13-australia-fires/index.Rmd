@@ -223,3 +223,4 @@ It seems amount of fires is mostly consistent with a spike on day two and day se
 
 # Conclusion:
 
+There seems to be a very high concentration of fires in Southeastern Australia. It is possible that this is due to human activity because this is also where alot of cities are located. However, the amount of fires may not be what they seem, since the fire detections with 100% confidence by the satellite are only about half the total number of fire detections.
