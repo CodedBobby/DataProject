@@ -28,9 +28,9 @@ mutate(longitude = round(longitude, digits = 0), latitude = round(latitude, digi
     
 group_by(city_name) %&gt;% 
 summarize(latitude = mean(latitude), longitude = mean(longitude)) %&gt;% 
-mutate(longitude = round(longitude, digits = 0), latitude = round(latitude, digits = 0))</code></pre>
-<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<pre class="r"><code>Fires %&gt;% 
+mutate(longitude = round(longitude, digits = 0), latitude = round(latitude, digits = 0))
+
+Fires %&gt;% 
 mutate(longitude = round(longitude, digits = 0), latitude = round(latitude, digits = 0)) %&gt;% 
     
 left_join(CityCoord, by = c(&quot;longitude&quot;, &quot;latitude&quot;)) %&gt;% 
@@ -47,21 +47,26 @@ ggtitle(&quot;Number of Nearby Fires vs Cities&quot;)</code></pre>
 <div id="question-2" class="section level1">
 <h1>Question 2:</h1>
 <p>Where have fires happened the most? To determine this, I will round the longitudes and latitudes of all fires to two decimal places and count the 10 areas with the highest number of fires.</p>
-<pre class="r"><code>Fires %&gt;% 
+<pre class="r"><code>FireMap &lt;- Fires %&gt;% 
 mutate(longitude = round(longitude, digits = 1), latitude = round(latitude, digits = 1)) %&gt;% 
     
 group_by(longitude, latitude) %&gt;% 
 summarize(total = n()) %&gt;% 
 ungroup() %&gt;% 
 slice_max(total, n = 20) %&gt;% 
-rename(TotalFires = &quot;total&quot;) %&gt;% 
-ggplot(aes(longitude, latitude, color = TotalFires)) + 
+rename(TotalFires = &quot;total&quot;)
+
+ggplot() + 
 borders(&quot;world&quot;) + 
 coord_quickmap(xlim = 113:155, ylim = -38:-10) + 
-geom_point(position = &quot;jitter&quot;) + 
+geom_point(data = FireMap, aes(longitude, latitude, size = TotalFires, color = TotalFires, 
+    position = &quot;jitter&quot;)) + 
 guides(size = FALSE) + 
 scale_color_gradient(low = &quot;blue&quot;, high = &quot;red&quot;) + 
+geom_point(data = CityCoord, aes(x = longitude, y = latitude, shape = 15)) + 
+scale_shape_identity() + 
 ggtitle(&quot;Areas With the Heaviest Concentration of Fires&quot;)</code></pre>
+<pre><code>## Warning: Ignoring unknown aesthetics: position</code></pre>
 <p><img src="index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <pre class="r"><code>Fires %&gt;% 
 mutate(longitude = round(longitude, digits = 1), latitude = round(latitude, digits = 1)) %&gt;% 
@@ -85,7 +90,7 @@ rename(`Total Fires In Area` = &quot;total&quot;)</code></pre>
 ##  9      150.    -32.6                   169
 ## 10      124.    -32.4                   163
 ## # … with 11 more rows</code></pre>
-<p>It seems the areas with the highest number of fires are all near the eastern coast of Australia.</p>
+<p>It seems the areas with the highest number of fires are all near the eastern coast of Australia. It should be taken into account, however, that total number of fires in an area does not necessarily indicate how damaged the area was by fire, as it doesn’t show the intensity of the fires. As such, one area can be more damaged by fires than another even with a lower total number of fires as long as the intensity of each of its fires is large enough.</p>
 </div>
 <div id="question-3" class="section level1">
 <h1>Question 3:</h1>
@@ -127,5 +132,5 @@ ggtitle(&quot;Number of Fires over time (100% Confidence)&quot;) +
 facet_wrap(~daynight) + 
 theme(axis.text.x = element_text(angle = -45, hjust = -0.1))</code></pre>
 <p><img src="index_files/figure-html/unnamed-chunk-5-3.png" width="672" /></p>
-<p>The amount of fires is mostly consistent with a spike on day two and day seven for nighttime and on the fifth and seventh day for daytime, but there’s a very sharp drop in the number of fires for both daytime and nighttime on the eighth day. In addition, although different confidence levels change the total number of fires, the overall trend is the same for the three levels chosen.</p>
+<p>The amount of fires is mostly consistent with a spike on day two and day seven for nighttime and on the fifth and seventh day for daytime, but there’s a very sharp drop in the number of fires for both daytime and nighttime on the eighth day. In addition, although different confidence levels change the total number of fires, the overall trend is mostly the same for the three levels chosen.</p>
 </div>

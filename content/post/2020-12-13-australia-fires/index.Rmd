@@ -30,7 +30,7 @@ Fires<-read.csv(here::here("content","post","2020-12-13-australia-fires","data",
 
 # Question 1:
 How many of these fires happened near the cities? I will examine this by counting the number of instances of fires with longitude and latitude equal to the city coordinates rounded to 0 decimal places.
-```{r}
+```{r, message=FALSE}
 CityCoord <- Rainfall %>%
   
   select(city_name,lat,long)%>%
@@ -72,7 +72,7 @@ There were fires only in three out of the six cities recorded, and it seems Sydn
 # Question 2:
 Where have fires happened the most? To determine this, I will round the longitudes and latitudes of all fires to two decimal places and count the 10 areas with the highest number of fires.
 ```{r, message=FALSE}
-Fires %>%
+FireMap <- Fires %>%
   
   mutate(longitude = round(longitude,digits=1),latitude=round(latitude,digits=1))%>%
   
@@ -84,19 +84,23 @@ Fires %>%
   
   slice_max(total, n = 20)%>%
   
-  rename("TotalFires" = "total")%>%
+  rename("TotalFires" = "total")
   
-  ggplot(aes(longitude,latitude,color=TotalFires))+
+ggplot()+
   
   borders("world")+
   
   coord_quickmap(xlim = 113:155,ylim = -38:-10)+
   
-  geom_point(position="jitter")+
+  geom_point(data=FireMap,aes(longitude,latitude,size=TotalFires,color=TotalFires,position="jitter"))+
   
   guides(size = FALSE)+
   
   scale_color_gradient(low="blue",high="red")+
+  
+  geom_point(data = CityCoord, aes(x=longitude,y=latitude,shape=15))+
+  
+  scale_shape_identity()+
   
   ggtitle("Areas With the Heaviest Concentration of Fires")
 
@@ -115,11 +119,11 @@ Fires %>%
   rename("Total Fires In Area" = "total")
 ```
 
-It seems the areas with the highest number of fires are all near the eastern coast of Australia.
+It seems the areas with the highest number of fires are all near the eastern coast of Australia. It should be taken into account, however, that total number of fires in an area does not necessarily indicate how damaged the area was by fire, as it doesn't show the intensity of the fires. As such, one area can be more damaged by fires than another even with a lower total number of fires as long as the intensity of each of its fires is large enough. 
 
 # Question 3:
 How has the frequency of fires changed over the 8 days, and is there any difference between the frequency of fires during the day and during the night? To determine this, I will create a line graph counting every instance of a fire over the days and faceting it based on whether it happened during the day or during the night. One thing to note however is that, as indicated by the confidence variable ranging from 0% to 100%, it is possible that some of the fire detections by the satellite listed in the data are not actually fires, so I will also make a graph for only fire detections above 50% confidence and at 100% confidence to see if there's any variation between them.
-```{r}
+```{r, message=FALSE}
 levels(Fires$daynight) <- c("Day", "Night")
 
 Fires %>%
@@ -187,4 +191,4 @@ Fires %>%
   theme(axis.text.x = element_text(angle = -45,hjust=-.1))
 ```
 
-The amount of fires is mostly consistent with a spike on day two and day seven for nighttime and on the fifth and seventh day for daytime, but there's a very sharp drop in the number of fires for both daytime and nighttime on the eighth day. In addition, although different confidence levels change the total number of fires, the overall trend is the same for the three levels chosen.
+The amount of fires is mostly consistent with a spike on day two and day seven for nighttime and on the fifth and seventh day for daytime, but there's a very sharp drop in the number of fires for both daytime and nighttime on the eighth day. In addition, although different confidence levels change the total number of fires, the overall trend is mostly the same for the three levels chosen.
