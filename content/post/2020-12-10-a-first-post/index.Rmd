@@ -80,7 +80,7 @@ dat1 %>%
   
   scale_color_gradient(name="Population within 5 km (Millions)",low="blue",high="red")
 ```
-Most of the active volcanoes seem to be located on the coasts of continents. In one of these volcanoes in Mexico there are about 5 million people living within 5 kilometers of it.
+Most of the active volcanoes seem to be located on the coasts of continents. For one of these volcanoes in Mexico there are about 5 million people living within 5 kilometers of it which could be hazardous for the many people living there if it erupts again.
 
 # Question 3:
 What volcanoes have erupted the most often?
