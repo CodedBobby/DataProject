@@ -92,7 +92,7 @@ Fires %>%
   theme(axis.text.x = element_text(angle = -75,hjust=-.1))
 ```
 
-There were fires only near three out of the six cities recorded, and it seems Sydney has by far the greatest number of nearby fires, having almost double the number of Perth and Melbourne. Perth, however, is the city that has experienced the greatest number of fires in a single day with 7 fires, on the day where Melbourne only had one nearby fire and Sydney had zero.
+There were fires only near three out of the six cities recorded, and it seems Sydney has by far the greatest number of nearby fires, having almost double the number of Perth and Melbourne. Perth, however, is the city that has experienced the greatest number of fires in a single day with 7 fires, whereas Melbourne and Sydney only had 6 at most. In addition, that day in particular is also the one day where no fire has occurred near Sydney.
 
 
 # Question 2:
@@ -147,7 +147,7 @@ Fires %>%
   rename("Total Fires In Area" = "total")
 ```
 
-It seems the areas with the highest number of fires are all near the Southeastern coast of Australia. It should be taken into account, however, that total number of fires in an area does not necessarily indicate how damaged the area was by fire, as it doesn't take into account the intensity of the fires. As such, one area can be more damaged by fires than another even with a lower total number of fires as long as the intensity of each of its fires is large enough. Since the 21 areas with the largest concentrations of fire detections are also generally near where there are cities, human activity can be one of the causes behind the large number of fires in that area.
+It seems the areas with the highest number of fires are all near the Southeastern coast of Australia. It should be taken into account, however, that total number of fires in an area does not necessarily indicate how damaged the area was by fire, as it doesn't take into account the intensity of the fires. As such, one area can be more damaged by fires than another even with a lower total number of fires as long as the intensity of each of its fires is large enough. Since the 21 areas with the largest concentrations of fire detections are also generally near where there are cities, human activity may be one of the causes behind the large concentration of fires in that area.
 
 # Question 3:
 How has the frequency of fires changed over the 8 days, and is there any difference between the frequency of fires during the day and during the night? To determine this, I will create a line graph counting every instance of a fire over the days and faceting it based on whether it happened during the day or during the night. One thing to note however is that, as indicated by the confidence variable ranging from 0% to 100%, it is possible that some of the fire detections by the satellite listed in the data are not actually fires, so I will also make graphs for only fire detections above 50% confidence and at 100% confidence to see if there's any variation between them.

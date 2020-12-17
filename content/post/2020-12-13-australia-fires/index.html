@@ -57,7 +57,7 @@ ggtitle(&quot;Number of Nearby Fires vs Cities over time&quot;) +
 facet_wrap(~city_name) + 
 theme(axis.text.x = element_text(angle = -75, hjust = -0.1))</code></pre>
 <p><img src="index_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
-<p>There were fires only near three out of the six cities recorded, and it seems Sydney has by far the greatest number of nearby fires, having almost double the number of Perth and Melbourne. Perth, however, is the city that has experienced the greatest number of fires in a single day with 7 fires, on the day where Melbourne only had one nearby fire and Sydney had zero.</p>
+<p>There were fires only near three out of the six cities recorded, and it seems Sydney has by far the greatest number of nearby fires, having almost double the number of Perth and Melbourne. Perth, however, is the city that has experienced the greatest number of fires in a single day with 7 fires, whereas Melbourne and Sydney only had 6 at most. In addition, that day in particular is also the one day where no fire has occurred near Sydney.</p>
 </div>
 <div id="question-2" class="section level1">
 <h1>Question 2:</h1>
@@ -103,7 +103,7 @@ rename(`Total Fires In Area` = &quot;total&quot;)</code></pre>
 ##  9      150.    -32.6                   169
 ## 10      124.    -32.4                   163
 ## # … with 11 more rows</code></pre>
-<p>It seems the areas with the highest number of fires are all near the Southeastern coast of Australia. It should be taken into account, however, that total number of fires in an area does not necessarily indicate how damaged the area was by fire, as it doesn’t take into account the intensity of the fires. As such, one area can be more damaged by fires than another even with a lower total number of fires as long as the intensity of each of its fires is large enough. Since the 21 areas with the largest concentrations of fire detections are also generally near where there are cities, human activity can be one of the causes behind the large number of fires in that area.</p>
+<p>It seems the areas with the highest number of fires are all near the Southeastern coast of Australia. It should be taken into account, however, that total number of fires in an area does not necessarily indicate how damaged the area was by fire, as it doesn’t take into account the intensity of the fires. As such, one area can be more damaged by fires than another even with a lower total number of fires as long as the intensity of each of its fires is large enough. Since the 21 areas with the largest concentrations of fire detections are also generally near where there are cities, human activity may be one of the causes behind the large concentration of fires in that area.</p>
 </div>
 <div id="question-3" class="section level1">
 <h1>Question 3:</h1>
