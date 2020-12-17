@@ -20,7 +20,7 @@ Fires &lt;- read.csv(here::here(&quot;content&quot;, &quot;post&quot;, &quot;202
     &quot;MODIS_C6_Australia_and_New_Zealand_7d.csv&quot;))</code></pre>
 <div id="question-1" class="section level1">
 <h1>Question 1:</h1>
-<p>How many of these fires happened near the cities? I will examine this by counting the number of instances of fires with longitude and latitude equal to the city coordinates rounded to 0 decimal places.</p>
+<p>How many of these fires happened near the cities, and have the number of fires changed in these cities changed over time? I will examine this by counting the number of instances of fires with longitude and latitude equal to the city coordinates rounded to 0 decimal places.</p>
 <pre class="r"><code>CityCoord &lt;- Rainfall %&gt;% 
 select(city_name, lat, long) %&gt;% 
 rename(longitude = long, latitude = lat) %&gt;% 
@@ -40,13 +40,28 @@ ggplot(aes(city_name, n)) +
 geom_bar(stat = &quot;identity&quot;) + 
 ylab(&quot;Number of nearby fires&quot;) + 
 xlab(&quot;City&quot;) + 
-ggtitle(&quot;Number of Nearby Fires vs Cities&quot;)</code></pre>
+ggtitle(&quot;Total Number of Nearby Fires vs Cities&quot;)</code></pre>
 <p><img src="index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<p>There were fires only near three out of the six cities recorded, and it seems Sydney has by far the greatest number of nearby fires, having almost double the number of Perth and Melbourne.</p>
+<pre class="r"><code>Fires %&gt;% 
+mutate(longitude = round(longitude, digits = 0), latitude = round(latitude, digits = 0)) %&gt;% 
+    
+left_join(CityCoord, by = c(&quot;longitude&quot;, &quot;latitude&quot;)) %&gt;% 
+group_by(acq_date) %&gt;% 
+na.omit(city_name) %&gt;% 
+count(city_name) %&gt;% 
+ggplot(aes(acq_date, n)) + 
+geom_bar(stat = &quot;identity&quot;) + 
+ylab(&quot;Number of nearby fires&quot;) + 
+xlab(&quot;City&quot;) + 
+ggtitle(&quot;Number of Nearby Fires vs Cities over time&quot;) + 
+facet_wrap(~city_name) + 
+theme(axis.text.x = element_text(angle = -75, hjust = -0.1))</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
+<p>There were fires only near three out of the six cities recorded, and it seems Sydney has by far the greatest number of nearby fires, having almost double the number of Perth and Melbourne. Perth, however, is the city that has experienced the greatest number of fires in a single day with 7 fires, on the day where Melbourne only had one nearby fire and Sydney had zero.</p>
 </div>
 <div id="question-2" class="section level1">
 <h1>Question 2:</h1>
-<p>Where have fires happened the most? To determine this, I will round the longitudes and latitudes of all fires to one decimal place and count the 20 areas with the highest number of fires. I will then map their coordinates along with their position relative to the cities listed in the Rainfall data.</p>
+<p>Where have fires happened the most? To determine this, I will round the longitudes and latitudes of all fires to one decimal place and count the 20 areas with the highest number of fires. I will then map their coordinates along with their position relative to the cities (shown as black squares) listed in the CityCoord data created in question 1.</p>
 <pre class="r"><code>FireMap &lt;- Fires %&gt;% 
 mutate(longitude = round(longitude, digits = 1), latitude = round(latitude, digits = 1)) %&gt;% 
     
@@ -55,7 +70,7 @@ summarize(total = n()) %&gt;%
 ungroup() %&gt;% 
 slice_max(total, n = 20) %&gt;% 
 rename(TotalFires = &quot;total&quot;)</code></pre>
-<p>In order to count the number of fire detections close to each other to determine concentration I rounded each of the fires’ longitudes and latitudes to one decimal point, and for that particular pair of longitude and latitude one fire case is added. After that, the 20 pairs of longitude and latitude with the highest number of fires are recorded in FireMap.</p>
+<p>In order to count the number of fire detections close to each other to determine concentration I rounded each of the fires’ longitudes and latitudes from three to one decimal point, and for that particular pair of longitude and latitude one fire case is added. After that, the 20 pairs of longitude and latitude with the highest number of fires are recorded in FireMap.</p>
 <pre class="r"><code>ggplot() + 
 borders(&quot;world&quot;) + 
 coord_quickmap(xlim = 113:155, ylim = -38:-10) + 
@@ -88,7 +103,7 @@ rename(`Total Fires In Area` = &quot;total&quot;)</code></pre>
 ##  9      150.    -32.6                   169
 ## 10      124.    -32.4                   163
 ## # … with 11 more rows</code></pre>
-<p>It seems the areas with the highest number of fires are all near the eastern coast of Australia. It should be taken into account, however, that total number of fires in an area does not necessarily indicate how damaged the area was by fire, as it doesn’t take into account the intensity of the fires. As such, one area can be more damaged by fires than another even with a lower total number of fires as long as the intensity of each of its fires is large enough.</p>
+<p>It seems the areas with the highest number of fires are all near the Southeastern coast of Australia. It should be taken into account, however, that total number of fires in an area does not necessarily indicate how damaged the area was by fire, as it doesn’t take into account the intensity of the fires. As such, one area can be more damaged by fires than another even with a lower total number of fires as long as the intensity of each of its fires is large enough. Since the 21 areas with the largest concentrations of fire detections are also generally near where there are cities, human activity can be one of the causes behind the large number of fires in that area.</p>
 </div>
 <div id="question-3" class="section level1">
 <h1>Question 3:</h1>
@@ -130,7 +145,7 @@ ggtitle(&quot;Number of Fires over time (100% Confidence)&quot;) +
 facet_wrap(~daynight) + 
 theme(axis.text.x = element_text(angle = -45, hjust = -0.1))</code></pre>
 <p><img src="index_files/figure-html/unnamed-chunk-6-3.png" width="672" /></p>
-<p>The amount of fires is mostly consistent with a spike on day two and day seven for nighttime and on the fifth and seventh day for daytime, but there’s a very sharp drop in the number of fires for both daytime and nighttime on the eighth day. In addition, although different confidence levels change the total number of fires, the overall trend is mostly the same for the three levels chosen.</p>
+<p>It seems amount of fires is mostly consistent with a spike on day two and day seven for nighttime and on the fifth and seventh day for daytime, but there’s a very sharp drop in the number of fires for both daytime and nighttime on the eighth day. In addition, although different confidence levels change the total number of fires, the overall trend is mostly the same for the three levels chosen.</p>
 </div>
 <div id="conclusion" class="section level1">
 <h1>Conclusion:</h1>
