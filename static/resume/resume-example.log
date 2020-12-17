@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.12.10)  15 DEC 2020 14:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.12.17)  17 DEC 2020 12:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -333,11 +333,310 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@inbox=\box50
 \enit@count@id=\count279
 \enitdp@description=\count280
+) (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+) (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+)
+\Gin@req@height=\dimen166
+\Gin@req@width=\dimen167
+) (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/hom
+e/bslavin/.TinyTeX/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/home/bslavin/.
+TinyTeX/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks27
+\pgfutil@tempdima=\dimen168
+\pgfutil@tempdimb=\dimen169
+
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lis
+ts.tex)) (/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfutil-l
+atex.def
+\pgfutil@abb=\box51
+) (/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex 
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2020/12/01 v3.1.7a (3.1.7a)
+))
+Package: pgf 2020/12/01 v3.1.7a (3.1.7a)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/home/
+bslavin/.TinyTeX/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/home/bslavin
+/.TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2020/12/01 v3.1.7a (3.1.7a)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks28
+\pgfkeys@temptoks=\toks29
+
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.co
+de.tex
+\pgfkeys@tmptoks=\toks30
+))
+\pgf@x=\dimen170
+\pgf@y=\dimen171
+\pgf@xa=\dimen172
+\pgf@ya=\dimen173
+\pgf@xb=\dimen174
+\pgf@yb=\dimen175
+\pgf@xc=\dimen176
+\pgf@yc=\dimen177
+\pgf@xd=\dimen178
+\pgf@yd=\dimen179
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count281
+\c@pgf@countb=\count282
+\c@pgf@countc=\count283
+\c@pgf@countd=\count284
+\t@pgf@toka=\toks31
+\t@pgf@tokb=\toks32
+\t@pgf@tokc=\toks33
+\pgf@sys@id@count=\count285
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2020/12/01 v3.1.7a (3.1.7a)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.de
+f
+File: pgfsys-pdftex.def 2020/12/01 v3.1.7a (3.1.7a)
+
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pd
+f.def
+File: pgfsys-common-pdf.def 2020/12/01 v3.1.7a (3.1.7a)
+)))
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.c
+ode.tex
+File: pgfsyssoftpath.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgfsyssoftpath@smallbuffer@items=\count286
+\pgfsyssoftpath@bigbuffer@items=\count287
+)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.c
+ode.tex
+File: pgfsysprotocol.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+)) (/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.t
+ex
+Package: pgfcore 2020/12/01 v3.1.7a (3.1.7a)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/home
+/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex (/home/b
+slavin/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/home/bs
+lavin/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen180
+\pgfmath@count=\count288
+\pgfmath@box=\box52
+\pgfmath@toks=\toks34
+\pgfmath@stack@operand=\toks35
+\pgfmath@stack@operation=\toks36
+)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.t
+ex
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.
+code.tex)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigon
+ometric.code.tex)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random
+.code.tex)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.compar
+ison.code.tex)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.c
+ode.tex)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.
+code.tex)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.c
+ode.tex)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.intege
+rarithmetics.code.tex))) (/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/mat
+h/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count289
+)) (/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.cod
+e.tex
+File: pgfcorepoints.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgf@picminx=\dimen181
+\pgf@picmaxx=\dimen182
+\pgf@picminy=\dimen183
+\pgf@picmaxy=\dimen184
+\pgf@pathminx=\dimen185
+\pgf@pathmaxx=\dimen186
+\pgf@pathminy=\dimen187
+\pgf@pathmaxy=\dimen188
+\pgf@xx=\dimen189
+\pgf@xy=\dimen190
+\pgf@yx=\dimen191
+\pgf@yy=\dimen192
+\pgf@zx=\dimen193
+\pgf@zy=\dimen194
+)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstr
+uct.code.tex
+File: pgfcorepathconstruct.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgf@path@lastx=\dimen195
+\pgf@path@lasty=\dimen196
+)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.
+code.tex
+File: pgfcorepathusage.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgf@shorten@end@additional=\dimen197
+\pgf@shorten@start@additional=\dimen198
+)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.cod
+e.tex
+File: pgfcorescopes.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgfpic=\box53
+\pgf@hbox=\box54
+\pgf@layerbox@main=\box55
+\pgf@picture@serial@count=\count290
+)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicsta
+te.code.tex
+File: pgfcoregraphicstate.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgflinewidth=\dimen199
+)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransforma
+tions.code.tex
+File: pgfcoretransformations.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgf@pt@x=\dimen256
+\pgf@pt@y=\dimen257
+\pgf@pt@temp=\dimen258
+)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code
+.tex
+File: pgfcorequick.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.co
+de.tex
+File: pgfcoreobjects.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathproces
+sing.code.tex
+File: pgfcorepathprocessing.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.cod
+e.tex
+File: pgfcorearrows.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgfarrowsep=\dimen259
+)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code
+.tex
+File: pgfcoreshade.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgf@max=\dimen260
+\pgf@sys@shading@range@num=\count291
+\pgf@shadingcount=\count292
+)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code
+.tex
+File: pgfcoreimage.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.c
+ode.tex
+File: pgfcoreexternal.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgfexternal@startupbox=\box56
+))
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.cod
+e.tex
+File: pgfcorelayers.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparen
+cy.code.tex
+File: pgfcoretransparency.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.c
+ode.tex
+File: pgfcorepatterns.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.t
+ex
+File: pgfcorerdf.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+)))
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code
+.tex
+File: pgfmoduleshapes.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgfnodeparttextbox=\box57
+)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.t
+ex
+File: pgfmoduleplot.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-
+0-65.sty
+Package: pgfcomp-version-0-65 2020/12/01 v3.1.7a (3.1.7a)
+\pgf@nodesepstart=\dimen261
+\pgf@nodesepend=\dimen262
+)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-
+1-18.sty
+Package: pgfcomp-version-1-18 2020/12/01 v3.1.7a (3.1.7a)
+)) (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/home
+/bslavin/.TinyTeX/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/home/bslavin
+/.TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (/home/bslavi
+n/.TinyTeX/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/home/bslavin/.TinyTeX/te
+xmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/home/bslavin/.TinyTeX/texmf-
+dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2020/12/01 v3.1.7a (3.1.7a)
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
+\pgffor@iter=\dimen263
+\pgffor@skip=\dimen264
+\pgffor@stack=\toks37
+\pgffor@toks=\toks38
+))
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code
+.tex
+Package: tikz 2020/12/01 v3.1.7a (3.1.7a)
+
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothand
+lers.code.tex
+File: pgflibraryplothandlers.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgf@plot@mark@count=\count293
+\pgfplotmarksize=\dimen265
+)
+\tikz@lastx=\dimen266
+\tikz@lasty=\dimen267
+\tikz@lastxsaved=\dimen268
+\tikz@lastysaved=\dimen269
+\tikz@lastmovetox=\dimen270
+\tikz@lastmovetoy=\dimen271
+\tikzleveldistance=\dimen272
+\tikzsiblingdistance=\dimen273
+\tikz@figbox=\box58
+\tikz@figbox@bg=\box59
+\tikz@tempbox=\box60
+\tikz@tempbox@bg=\box61
+\tikztreelevel=\count294
+\tikznumberofchildren=\count295
+\tikznumberofcurrentchild=\count296
+\tikz@fig@count=\count297
+
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code
+.tex
+File: pgfmodulematrix.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgfmatrixcurrentrow=\count298
+\pgfmatrixcurrentcolumn=\count299
+\pgf@matrix@numberofcolumns=\count300
+)
+\tikz@expandcount=\count301
+
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries
+/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+))) (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/tikzpagenodes/tikzpagenodes.st
+y
+Package: tikzpagenodes 2012/09/16 v1.1 Special PGF/TikZ nodes for areas of the 
+page
+(/home/bslavin/.TinyTeX/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count302
+))
+(/home/bslavin/.TinyTeX/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries
+/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2020/12/01 v3.1.7a (3.1.7a)
 ) (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/datetime/datetime.sty
 Package: datetime 2015/03/20 v2.60 Date Time Package
 (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count281
+\etb@tempcnta=\count303
 ) (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/fmtcount/fmtcount.sty
 Package: fmtcount 2020/01/30 v3.07
 (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/base/ifthen.sty
@@ -346,49 +645,49 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
 (/home/bslavin/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/home/bslav
 in/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks27
-\XKV@tempa@toks=\toks28
+\XKV@toks=\toks39
+\XKV@tempa@toks=\toks40
 )
-\XKV@depth=\count282
+\XKV@depth=\count304
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )) (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/fmtcount/fcprefix.sty
 Package: fcprefix 2012/09/28
 (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/fmtcount/fcnumparser.sty
 Package: fcnumparser 2017/06/15
-\fc@digit@counter=\count283
+\fc@digit@counter=\count305
 ))
-\c@padzeroesN=\count284
-\fc@tmpcatcode=\count285
-\@DT@modctr=\count286
-\@ordinalctr=\count287
-\@orgargctr=\count288
-\@strctr=\count289
-\@tmpstrctr=\count290
-\@DT@loopN=\count291
-\@DT@X=\count292
+\c@padzeroesN=\count306
+\fc@tmpcatcode=\count307
+\@DT@modctr=\count308
+\@ordinalctr=\count309
+\@orgargctr=\count310
+\@strctr=\count311
+\@tmpstrctr=\count312
+\@DT@loopN=\count313
+\@DT@X=\count314
 ) (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/datetime/datetime-defaults.sty
 Package: datetime-defaults 2013/09/10
 )
-\@day=\count293
-\@month=\count294
-\@year=\count295
-\c@HOUR=\count296
-\c@HOURXII=\count297
-\c@MINUTE=\count298
-\c@TOHOUR=\count299
-\c@TOMINUTE=\count300
-\c@SECOND=\count301
-\currenthour=\count302
-\currentminute=\count303
-\currentsecond=\count304
+\@day=\count315
+\@month=\count316
+\@year=\count317
+\c@HOUR=\count318
+\c@HOURXII=\count319
+\c@MINUTE=\count320
+\c@TOHOUR=\count321
+\c@TOMINUTE=\count322
+\c@SECOND=\count323
+\currenthour=\count324
+\currentminute=\count325
+\currentsecond=\count326
 Package datetime Info: No datetime.cfg file found, using default settings on in
 put line 308.
-\@dtctr=\count305
-\dayofyear=\count306
-\dayofweek=\count307
+\@dtctr=\count327
+\dayofyear=\count328
+\dayofweek=\count329
 LaTeX Info: Redefining \today on input line 736.
-\dt@a=\toks29
-\dt@b=\toks30
+\dt@a=\toks41
+\dt@b=\toks42
 ) (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
 s
@@ -404,39 +703,47 @@ s
 ) (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/lastpage/lastpage.sty
 Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
 )
-Package hyperref Info: Option `unicode' set `true' on input line 133.
-Package hyperref Info: Option `colorlinks' set `true' on input line 133.
-Package hyperref Info: Option `breaklinks' set `true' on input line 133.
+Package hyperref Info: Option `unicode' set `true' on input line 137.
+Package hyperref Info: Option `colorlinks' set `true' on input line 137.
+Package hyperref Info: Option `breaklinks' set `true' on input line 137.
 
 Package hyperref Warning: Option `bookmarks' has already been used,
-(hyperref)                setting the option has no effect on input line 133.
+(hyperref)                setting the option has no effect on input line 137.
 
 (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
-\l__kernel_color_stack_int=\count308
-\l__pdf_internal_box=\box51
+\l__kernel_color_stack_int=\count330
+\l__pdf_internal_box=\box62
 ) (./resume-example.aux)
 \openout1 = `resume-example.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 135.
-LaTeX Font Info:    ... okay on input line 135.
-Package hyperref Info: Link coloring ON on input line 135.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 139.
+LaTeX Font Info:    ... okay on input line 139.
+(/home/bslavin/.TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+(/home/bslavin/.TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package hyperref Info: Link coloring ON on input line 139.
 (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
@@ -446,14 +753,14 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 y
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count309
+\c@section@level=\count331
 )
-LaTeX Info: Redefining \ref on input line 135.
-LaTeX Info: Redefining \pageref on input line 135.
-LaTeX Info: Redefining \nameref on input line 135.
+LaTeX Info: Redefining \ref on input line 139.
+LaTeX Info: Redefining \pageref on input line 139.
+LaTeX Info: Redefining \nameref on input line 139.
 (./resume-example.out) (./resume-example.out)
-\@outlinefile=\write3
-\openout3 = `resume-example.out'.
+\@outlinefile=\write4
+\openout4 = `resume-example.out'.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -494,84 +801,89 @@ File: fc-english.def 2016/01/12
 )
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 135.
+(lastpage)             ! on input line 139.
+<BSlav.jpg, id=27, 200.75pt x 200.75pt>
+File: BSlav.jpg Graphic file (type jpg)
+<use BSlav.jpg>
+Package pdftex.def Info: BSlav.jpg  used on input line 144.
+(pdftex.def)             Requested size: 93.94957pt x 93.95122pt.
 LaTeX Font Info:    Trying to load font information for U+fontawesometwo on inp
-ut line 146.
+ut line 154.
 (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/fontawesome/ufontawesometwo.fd
 File: ufontawesometwo.fd 2016/05/22 Font definitions for U/fontawesometwo.
 )
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-46.
+54.
 (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-46.
+54.
 (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-46.
+54.
 (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-146.
+154.
 (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-146.
+154.
 (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 146.
+(Font)              <9> on input line 154.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 146.
+(Font)              <6> on input line 154.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 146.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 146
+(Font)              <5> on input line 154.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 154
 .
 (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 146
+LaTeX Font Info:    Trying to load font information for U+msb on input line 154
 .
 (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for U+fontawesomethree on i
-nput line 153.
+nput line 161.
 (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/fontawesome/ufontawesomethree.fd
 File: ufontawesomethree.fd 2016/05/22 Font definitions for U/fontawesomethree.
 )
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 1
-61.
+69.
 (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-64.
+72.
 (/home/bslavin/.TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) 
 AED: lastpage setting LastPage
 [1
 
-{/home/bslavin/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./resum
-e-example.aux)
+{/home/bslavin/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./BSlav.
+jpg>] (./resume-example.aux)
 Package rerunfilecheck Info: File `resume-example.out' has not changed.
-(rerunfilecheck)             Checksum: D0B54881D12BB966ECCEA09AC176793B;989.
+(rerunfilecheck)             Checksum: 1ACDAB1F8E3B47450CDC37BA8514BC4F;782.
  ) 
 Here is how much of TeX's memory you used:
- 13858 strings out of 481331
- 196978 string characters out of 5917526
- 524643 words of memory out of 5000000
- 30465 multiletter control sequences out of 15000+600000
+ 24186 strings out of 481330
+ 422149 string characters out of 5917594
+ 720297 words of memory out of 5000000
+ 40557 multiletter control sequences out of 15000+600000
  459536 words of font info for 62 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 80i,11n,85p,1026b,443s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 80i,11n,85p,1026b,654s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/home/bslavin/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/home/bslavi
 n/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/home/bslavin/.TinyTeX/tex
 mf-dist/fonts/enc/dvips/fontawesome/fontawesomethree.enc}{/home/bslavin/.TinyTe
@@ -584,10 +896,10 @@ blic/lm/lmr8.pfb></home/bslavin/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.
 pfb></home/bslavin/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmri8.pfb></home/b
 slavin/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></home/bslavin/.T
 inyTeX/texmf-dist/fonts/type1/public/lm/lmtt9.pfb>
-Output written on resume-example.pdf (1 page, 196709 bytes).
+Output written on resume-example.pdf (1 page, 205111 bytes).
 PDF statistics:
- 97 PDF objects out of 1000 (max. 8388607)
- 84 compressed objects within 1 object stream
- 14 named destinations out of 1000 (max. 500000)
- 49 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 95 PDF objects out of 1000 (max. 8388607)
+ 81 compressed objects within 1 object stream
+ 12 named destinations out of 1000 (max. 500000)
+ 58 words of extra memory for PDF output out of 10000 (max. 10000000)
 

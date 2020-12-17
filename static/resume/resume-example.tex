@@ -97,6 +97,10 @@
 \usepackage{enumitem}
 \setlist[itemize]{leftmargin=*}
 
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tikzpagenodes}
+\usetikzlibrary{calc} 
 
 
 % Make AP style (kinda) dates for the updated/today field
@@ -136,6 +140,10 @@
 % shift=(current page.north east)
 %\begin{wrapfigure}{r}{\textwidth}
 
+\begin{tikzpicture}[remember picture,overlay, shift={(7in,-0.25in)}]
+    \clip (0,0) circle (1.75cm) node {\includegraphics[width=.2\textwidth]{BSlav.jpg}};
+\end{tikzpicture}
+
  % includephoto
 %\end{wrapfigure}
 
@@ -170,11 +178,24 @@
 \hypertarget{education}{%
 \section{Education}\label{education}}
 
-\hypertarget{postgraduate-program}{%
-\subsection{Postgraduate Program}\label{postgraduate-program}}
+\hypertarget{high-school}{%
+\subsection{High School}\label{high-school}}
 
-\hypertarget{undergraduate-program}{%
-\subsection{Undergraduate Program}\label{undergraduate-program}}
+\begin{itemize}
+\tightlist
+\item
+  Graduated from Central High School in Little Rock, Arkansas in 2020.
+\end{itemize}
+
+\end{column}
+
+\begin{column}{0.02\textwidth}
+
+~
+
+\end{column}
+
+\begin{column}{0.38\textwidth}
 
 \hypertarget{technical-skills-or-accomplishments}{%
 \section{Technical Skills (or
@@ -187,6 +208,8 @@ Accomplishments)}\label{technical-skills-or-accomplishments}}
 \item
   I am proficient in operating various digital technologies and can
   learn how different ones are used quickly
+\item
+  I have basic data analytical skills
 \end{itemize}
 
 \hypertarget{awards-and-distinctions}{%
@@ -197,16 +220,6 @@ Accomplishments)}\label{technical-skills-or-accomplishments}}
 \item
   Got a score of 1450 on the SAT and a score of 33 on the ACT.
 \end{itemize}
-
-\end{column}
-
-\begin{column}{0.02\textwidth}
-
-~
-
-\end{column}
-
-\begin{column}{0.38\textwidth}
 
 \end{column}
 
