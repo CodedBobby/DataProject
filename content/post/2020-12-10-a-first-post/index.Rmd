@@ -28,8 +28,8 @@ dat4<-read.csv(here::here("content","post","2020-12-10-a-first-post","data","sul
 ```
 
 # Question 1:
-To what extent does a volcano eruption impact the atmosphere? To explore this I will attempt to determine the relation between major volcanic eruptions (defined here as any eruption with a vei of 4 or higher) and spikes in sulfur levels in both Greenland and Antartica.
-```{r}
+To what extent does a volcano eruption impact the atmosphere? To explore this I will attempt to determine the relation between major volcanic eruptions (defined here as any eruption with a vei of 4 or higher) and spikes in sulfur levels in both Greenland and Antarctica. I will do this by creating a line graph with sulfur concentrations and plotting the major volcanic eruptions as dots on the date they occurred.
+```{r, message=FALSE}
 filtered <- dat1 %>%
   
   left_join(dat2, by = c("volcano_number","volcano_name","longitude","latitude"))%>%
@@ -43,7 +43,7 @@ ggplot()+
   
   geom_point(data=filtered, aes(start_year,0))+
   
-  scale_color_manual(name="Location of Ice Cores",labels=c("Greenland","Antartica"),values=c("blue"="blue","red"="red"))+
+  scale_color_manual(name="Location of Ice Cores",labels=c("Greenland","Antarctica"),values=c("blue"="blue","red"="red"))+
   
   ylab("Sulfur (ng/g)")+
   
@@ -51,10 +51,11 @@ ggplot()+
   
   ggtitle("Year vs Sulfur")
 ```
+Most volcanic eruptions seem to coincide with a large spike in sulfur concentration in either Greenland or Antarctica. However, not all major volcanic eruptions seem to cause a spike in sulfur levels. This suggests the impact a volcano can have on the atmosphere decreases as distance increases.
 
 # Question 2:
 Are there any areas currently at risk from volcano eruptions?
-```{r}
+```{r, message=FALSE}
 dat1 %>%
   
   left_join(dat2, by = c("volcano_number","volcano_name","longitude","latitude"))%>%
@@ -78,7 +79,7 @@ dat1 %>%
 
 # Question 3:
 What volcanoes have erupted the most often?
-```{r}
+```{r, message=FALSE}
 dat1 %>%
   
   left_join(dat2, by = c("volcano_number","volcano_name","longitude","latitude"))%>%
@@ -91,4 +92,7 @@ dat1 %>%
   
   slice_max(total, n = 10)
 ```
+
+
+# Conclusion:
 

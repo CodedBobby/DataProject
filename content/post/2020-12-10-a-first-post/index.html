@@ -22,7 +22,7 @@ dat4 &lt;- read.csv(here::here(&quot;content&quot;, &quot;post&quot;, &quot;2020
     &quot;sulfur.csv&quot;))</code></pre>
 <div id="question-1" class="section level1">
 <h1>Question 1:</h1>
-<p>To what extent does a volcano eruption impact the atmosphere? To explore this I will attempt to determine the relation between major volcanic eruptions (defined here as any eruption with a vei of 4 or higher) and spikes in sulfur levels in both Greenland and Antartica.</p>
+<p>To what extent does a volcano eruption impact the atmosphere? To explore this I will attempt to determine the relation between major volcanic eruptions (defined here as any eruption with a vei of 4 or higher) and spikes in sulfur levels in both Greenland and Antarctica. I will do this by creating a line graph with sulfur concentrations and plotting the major volcanic eruptions as dots on the date they occurred.</p>
 <pre class="r"><code>filtered &lt;- dat1 %&gt;% 
 left_join(dat2, by = c(&quot;volcano_number&quot;, &quot;volcano_name&quot;, &quot;longitude&quot;, &quot;latitude&quot;)) %&gt;% 
     
@@ -31,7 +31,7 @@ ggplot() +
 geom_line(data = dat4, aes(year, neem, color = &quot;blue&quot;)) + 
 geom_line(data = dat4, aes(year, wdc, color = &quot;red&quot;)) + 
 geom_point(data = filtered, aes(start_year, 0)) + 
-scale_color_manual(name = &quot;Location of Ice Cores&quot;, labels = c(&quot;Greenland&quot;, &quot;Antartica&quot;), 
+scale_color_manual(name = &quot;Location of Ice Cores&quot;, labels = c(&quot;Greenland&quot;, &quot;Antarctica&quot;), 
     values = c(blue = &quot;blue&quot;, red = &quot;red&quot;)) + 
 ylab(&quot;Sulfur (ng/g)&quot;) + 
 xlab(&quot;Year&quot;) + 
@@ -39,7 +39,8 @@ ggtitle(&quot;Year vs Sulfur&quot;)</code></pre>
 <pre><code>## Warning: Removed 290 rows containing missing values (geom_path).
 
 ## Warning: Removed 290 rows containing missing values (geom_path).</code></pre>
-<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+Most volcanic eruptions seem to coincide with a large spike in sulfur concentration in either Greenland or Antarctica. However, not all major volcanic eruptions seem to cause a spike in sulfur levels. This suggests the impact a volcano can have on the atmosphere decreases as distance increases.</p>
 </div>
 <div id="question-2" class="section level1">
 <h1>Question 2:</h1>
@@ -55,7 +56,6 @@ geom_point() +
 borders(&quot;world&quot;) + 
 coord_quickmap() + 
 ggtitle(&quot;Location of Recently Erupted Volcanoes&quot;)</code></pre>
-<pre><code>## Adding missing grouping variables: `volcano_name`, `volcano_number`</code></pre>
 <p><img src="index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 <div id="question-3" class="section level1">
@@ -68,7 +68,6 @@ group_by(volcano_number, volcano_name) %&gt;%
 summarize(total = n()) %&gt;% 
 ungroup() %&gt;% 
 slice_max(total, n = 10)</code></pre>
-<pre><code>## `summarise()` regrouping output by &#39;volcano_number&#39; (override with `.groups` argument)</code></pre>
 <pre><code>## # A tibble: 10 x 3
 ##    volcano_number volcano_name           total
 ##             &lt;int&gt; &lt;fct&gt;                  &lt;int&gt;
@@ -82,4 +81,7 @@ slice_max(total, n = 10)</code></pre>
 ##  8         263250 Merapi                   110
 ##  9         332020 Mauna Loa                110
 ## 10         284010 Izu-Oshima               108</code></pre>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion:</h1>
 </div>
