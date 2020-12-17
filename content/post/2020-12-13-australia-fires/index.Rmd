@@ -124,7 +124,7 @@ ggplot()+
   
   guides(size = FALSE)+
   
-  scale_color_gradient(low="blue",high="red")+
+  scale_color_gradient(name="Total Fires in the Area",low="blue",high="red")+
   
   geom_point(data = CityCoord, aes(x=longitude,y=latitude,shape=15))+
   

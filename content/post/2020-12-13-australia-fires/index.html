@@ -76,7 +76,8 @@ borders(&quot;world&quot;) +
 coord_quickmap(xlim = 113:155, ylim = -38:-10) + 
 geom_point(data = FireMap, aes(longitude, latitude, color = TotalFires)) + 
 guides(size = FALSE) + 
-scale_color_gradient(low = &quot;blue&quot;, high = &quot;red&quot;) + 
+scale_color_gradient(name = &quot;Total Fires in the Area&quot;, low = &quot;blue&quot;, high = &quot;red&quot;) + 
+    
 geom_point(data = CityCoord, aes(x = longitude, y = latitude, shape = 15)) + 
 scale_shape_identity() + 
 ggtitle(&quot;Areas With the Heaviest Concentration of Fires&quot;)</code></pre>
