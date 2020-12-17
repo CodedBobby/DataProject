@@ -11,7 +11,7 @@ tags: []
 <script src="index_files/anchor-sections/anchor-sections.js"></script>
 
 
-<p>Using the volcano data from tinytuesday I will investigate volcanic eruptions and the affect they have on the environment. I will use the volcano, eruptions and sulfur datasets in order to explore this. The volcano dataset contains the variables volcano_number and volcano_name, which can be used to identify the volcanoes, population_within_5_km, which is the number of people within 5 km of the volcano, latitude and longitude, doubles which can show where the volcanoes are and primary_volcano_type, a factor with 26 levels which shows what types the volcanoes are. The sulfur dataset contains the variables neem, which is the sulfur detected in ng/g from melting ice cores in Greenland, wdc, which is the sulfur detected in ng/g from melting ice cores in Antarctica, and Year, which is the year in CE that the ice cores were formed.</p>
+<p>Using the volcano data from tinytuesday I will investigate volcanic eruptions and the affect they have on the environment. I will use the volcano, eruptions and sulfur datasets in order to explore this. The volcano dataset contains the variables volcano_number and volcano_name, which can be used to identify the volcanoes, population_within_5_km, which is the number of people within 5 kilometers of the volcano, latitude and longitude, doubles which can show where the volcanoes are and primary_volcano_type, a factor with 26 levels which shows what types the volcanoes are. The sulfur dataset contains the variables neem, which is the sulfur detected in ng/g from melting ice cores in Greenland, wdc, which is the sulfur detected in ng/g from melting ice cores in Antarctica, and Year, which is the year in CE that the ice cores were formed.</p>
 <pre class="r"><code>dat1 &lt;- read.csv(here::here(&quot;content&quot;, &quot;post&quot;, &quot;2020-12-10-a-first-post&quot;, &quot;data&quot;, 
     &quot;volcano.csv&quot;))
 dat2 &lt;- read.csv(here::here(&quot;content&quot;, &quot;post&quot;, &quot;2020-12-10-a-first-post&quot;, &quot;data&quot;, 
@@ -60,7 +60,7 @@ ggtitle(&quot;Locations of Recently Erupted Volcanoes with nearby People&quot;) 
 theme(legend.position = &quot;bottom&quot;) + 
 scale_color_gradient(name = &quot;Population within 5 km (Millions)&quot;, low = &quot;blue&quot;, high = &quot;red&quot;)</code></pre>
 <p><img src="index_files/figure-html/unnamed-chunk-4-1.png" width="672" />
-Alot of active volcanoes seem to be located on the coasts of continents. A location in Mexico seems to</p>
+Most of the active volcanoes seem to be located on the coasts of continents. In one of these volcanoes in Mexico there are about 5 million people living within 5 kilometers of it.</p>
 </div>
 <div id="question-3" class="section level1">
 <h1>Question 3:</h1>

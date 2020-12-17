@@ -10,7 +10,7 @@ tags: []
 knitr::opts_chunk$set(echo = TRUE, tidy = TRUE)
 ```
 
-Using the volcano data from tinytuesday I will investigate volcanic eruptions and the affect they have on the environment. I will use the volcano, eruptions and sulfur datasets in order to explore this. The volcano dataset contains the variables volcano_number and volcano_name, which can be used to identify the volcanoes, population_within_5_km, which is the number of people within 5 km of the volcano, latitude and longitude, doubles which can show where the volcanoes are and primary_volcano_type, a factor with 26 levels which shows what types the volcanoes are. The sulfur dataset contains the variables neem, which is the sulfur detected in ng/g from melting ice cores in Greenland, wdc, which is the sulfur detected in ng/g from melting ice cores in Antarctica, and Year, which is the year in CE that the ice cores were formed.
+Using the volcano data from tinytuesday I will investigate volcanic eruptions and the affect they have on the environment. I will use the volcano, eruptions and sulfur datasets in order to explore this. The volcano dataset contains the variables volcano_number and volcano_name, which can be used to identify the volcanoes, population_within_5_km, which is the number of people within 5 kilometers of the volcano, latitude and longitude, doubles which can show where the volcanoes are and primary_volcano_type, a factor with 26 levels which shows what types the volcanoes are. The sulfur dataset contains the variables neem, which is the sulfur detected in ng/g from melting ice cores in Greenland, wdc, which is the sulfur detected in ng/g from melting ice cores in Antarctica, and Year, which is the year in CE that the ice cores were formed.
 
 ```{r, message=FALSE, include=FALSE}
 library(here)
@@ -80,7 +80,7 @@ dat1 %>%
   
   scale_color_gradient(name="Population within 5 km (Millions)",low="blue",high="red")
 ```
-Alot of active volcanoes seem to be located on the coasts of continents. A location in Mexico seems to 
+Most of the active volcanoes seem to be located on the coasts of continents. In one of these volcanoes in Mexico there are about 5 million people living within 5 kilometers of it.
 
 # Question 3:
 What volcanoes have erupted the most often?
