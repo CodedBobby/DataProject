@@ -65,7 +65,7 @@ Most of the volcanoes seem to be located on the coasts of continents. For one of
 </div>
 <div id="question-3" class="section level1">
 <h1>Question 3:</h1>
-<p>What volcanoes have erupted the most often, and is there a difference in the number of eruptions between volcano type? To determine this, I will compare the number of eruptions in both volcano</p>
+<p>What volcanoes have erupted the most often, and is there a difference in the number of eruptions between volcano type? To determine this, I will compare the number of eruptions in both volcano type and volcano names.</p>
 <pre class="r"><code>dat1 %&gt;% 
 left_join(dat2, by = c(&quot;volcano_number&quot;, &quot;volcano_name&quot;, &quot;longitude&quot;, &quot;latitude&quot;)) %&gt;% 
     

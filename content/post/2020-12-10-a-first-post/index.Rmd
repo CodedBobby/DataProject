@@ -85,7 +85,7 @@ Most of the volcanoes seem to be located on the coasts of continents. For one of
 
 
 # Question 3:
-What volcanoes have erupted the most often, and is there a difference in the number of eruptions between volcano type? To determine this, I will compare the number of eruptions in both volcano
+What volcanoes have erupted the most often, and is there a difference in the number of eruptions between volcano type? To determine this, I will compare the number of eruptions in both volcano type and volcano names.
 ```{r, message=FALSE}
 dat1 %>%
   
