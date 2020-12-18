@@ -11,7 +11,7 @@ tags: []
 <script src="index_files/anchor-sections/anchor-sections.js"></script>
 
 
-<p>Using the volcano data from tinytuesday I will investigate volcanic eruptions and the affect they have on the environment. I will use the volcano, eruptions and sulfur datasets in order to explore this. The volcano dataset contains the variables volcano_number and volcano_name, which can be used to identify the volcanoes, population_within_5_km, which is the number of people within 5 kilometers of the volcano, latitude and longitude, doubles which can show where the volcanoes are and primary_volcano_type, a factor with 26 levels which shows what types the volcanoes are. The sulfur dataset contains the variables neem, which is the sulfur detected in ng/g from melting ice cores in Greenland, wdc, which is the sulfur detected in ng/g from melting ice cores in Antarctica, and Year, which is the year in CE that the ice cores were formed.</p>
+<p>Using the volcano data from tinytuesday I will investigate volcanic eruptions and the affect they have on the environment. I will use the volcano, eruptions and sulfur datasets in order to explore this. The volcano dataset contains the variables volcano_number and volcano_name, which can be used to identify the volcanoes, population_within_5_km, which is the number of people within 5 kilometers of the volcano, latitude and longitude, doubles which can show where the volcanoes are and primary_volcano_type, a factor with 26 levels which shows what types the volcanoes are. The sulfur dataset contains the variables neem, which is the sulfur detected in ng/g from melting ice cores in Greenland, wdc, which is the sulfur detected in ng/g from melting ice cores in Antarctica, and Year, which is the year in CE that the ice cores were formed. The eruptions dataset volcano_number and volcano_name, which can be used to identify the volcanoes, eruption_number, which is a volcano eruption’s unique ID, start_year, start_month and start_day, which show the starting date of the eruption and eruption_category, a factor with three levels that shows whether the eruption was confirmed, uncertain or discredited.</p>
 <pre class="r"><code>dat1 &lt;- read.csv(here::here(&quot;content&quot;, &quot;post&quot;, &quot;2020-12-10-a-first-post&quot;, &quot;data&quot;, 
     &quot;volcano.csv&quot;))
 dat2 &lt;- read.csv(here::here(&quot;content&quot;, &quot;post&quot;, &quot;2020-12-10-a-first-post&quot;, &quot;data&quot;, 
@@ -26,7 +26,8 @@ dat4 &lt;- read.csv(here::here(&quot;content&quot;, &quot;post&quot;, &quot;2020
 <pre class="r"><code>filtered &lt;- dat1 %&gt;% 
 left_join(dat2, by = c(&quot;volcano_number&quot;, &quot;volcano_name&quot;, &quot;longitude&quot;, &quot;latitude&quot;)) %&gt;% 
     
-filter(vei &gt;= 4, start_year &gt;= 500, start_year &lt;= 706)
+filter(eruption_category == &quot;Confirmed Eruption&quot;, vei &gt;= 4, start_year &gt;= 500, start_year &lt;= 
+    706)
 ggplot() + 
 geom_line(data = dat4, aes(year, neem, color = &quot;blue&quot;)) + 
 geom_line(data = dat4, aes(year, wdc, color = &quot;red&quot;)) + 
@@ -49,8 +50,8 @@ Most major volcanic eruptions seem to coincide with a large spike in sulfur conc
 left_join(dat2, by = c(&quot;volcano_number&quot;, &quot;volcano_name&quot;, &quot;longitude&quot;, &quot;latitude&quot;)) %&gt;% 
     
 group_by(volcano_name, volcano_number) %&gt;% 
-filter(start_year &gt;= 1800, start_year == max(start_year), population_within_5_km &gt;= 
-    1000) %&gt;% 
+filter(eruption_category == &quot;Confirmed Eruption&quot;, start_year &gt;= 1800, start_year == 
+    max(start_year), population_within_5_km &gt;= 1000) %&gt;% 
 select(region, longitude, latitude, population_within_5_km) %&gt;% 
 ggplot(aes(longitude, latitude, color = population_within_5_km/1e+06)) + 
 geom_point() + 
@@ -60,32 +61,44 @@ ggtitle(&quot;Locations of Recently Erupted Volcanoes with nearby People&quot;) 
 theme(legend.position = &quot;bottom&quot;) + 
 scale_color_gradient(name = &quot;Population within 5 km (Millions)&quot;, low = &quot;blue&quot;, high = &quot;red&quot;)</code></pre>
 <p><img src="index_files/figure-html/unnamed-chunk-4-1.png" width="672" />
-Most of the active volcanoes seem to be located on the coasts of continents. For one of these volcanoes in Mexico there are about 5 million people living within 5 kilometers of it which could be hazardous for the many people living there if it erupts again.</p>
+Most of the volcanoes seem to be located on the coasts of continents. For one of these volcanoes in Mexico, Michoacan-Guanajuato, there are about 5 million people living within 5 kilometers of it which could be hazardous for the people living there if it erupts again. Besides Mexico, other places where people live close to volcanoes are Indonesia and Japan, but most have below 3 million people.</p>
 </div>
 <div id="question-3" class="section level1">
 <h1>Question 3:</h1>
-<p>What volcanoes have erupted the most often?</p>
+<p>What volcanoes have erupted the most often, and is there a difference in the number of eruptions between volcano type? To determine this, I will compare the number of eruptions in both volcano</p>
 <pre class="r"><code>dat1 %&gt;% 
 left_join(dat2, by = c(&quot;volcano_number&quot;, &quot;volcano_name&quot;, &quot;longitude&quot;, &quot;latitude&quot;)) %&gt;% 
     
-group_by(volcano_number, volcano_name) %&gt;% 
+group_by(volcano_number, volcano_name, primary_volcano_type) %&gt;% 
+filter(eruption_category == &quot;Confirmed Eruption&quot;) %&gt;% 
 summarize(total = n()) %&gt;% 
 ungroup() %&gt;% 
-slice_max(total, n = 10)</code></pre>
-<pre><code>## # A tibble: 10 x 3
-##    volcano_number volcano_name           total
-##             &lt;int&gt; &lt;fct&gt;                  &lt;int&gt;
-##  1         211060 Etna                     241
-##  2         233020 Fournaise, Piton de la   194
-##  3         282110 Asosan                   186
-##  4         357120 Villarrica               164
-##  5         283110 Asamayama                147
-##  6         372030 Katla                    132
-##  7         300260 Klyuchevskoy             111
-##  8         263250 Merapi                   110
-##  9         332020 Mauna Loa                110
-## 10         284010 Izu-Oshima               108</code></pre>
+slice_max(total, n = 10) %&gt;% 
+ggplot(aes(volcano_name, total, fill = primary_volcano_type)) + 
+geom_bar(stat = &quot;identity&quot;) + 
+theme(axis.text.x = element_text(angle = -60, hjust = 0, vjust = 0.5)) + 
+ylab(&quot;Number of Eruptions&quot;) + 
+xlab(&quot;Volcano Name&quot;) + 
+ggtitle(&quot;Number of Eruptions by volcano&quot;)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre class="r"><code>dat1 %&gt;% 
+left_join(dat2, by = c(&quot;volcano_number&quot;, &quot;volcano_name&quot;, &quot;longitude&quot;, &quot;latitude&quot;)) %&gt;% 
+    
+group_by(primary_volcano_type) %&gt;% 
+filter(eruption_category == &quot;Confirmed Eruption&quot;) %&gt;% 
+summarize(total = n()) %&gt;% 
+ungroup() %&gt;% 
+arrange(desc(total)) %&gt;% 
+ggplot(aes(primary_volcano_type, total)) + 
+geom_bar(stat = &quot;identity&quot;) + 
+theme(axis.text.x = element_text(angle = -90, hjust = 0, vjust = 0.5)) + 
+ylab(&quot;Number of Eruptions&quot;) + 
+xlab(&quot;Volcano Type&quot;) + 
+ggtitle(&quot;Number of Eruptions by volcano type&quot;)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-5-2.png" width="672" />
+Out of the various volcano types, the stratovolcano has the largest number of eruptions, being about four times as eruptive as a shield volcano. In addition among the volcanoes around the world, Mount Etna, a stratovolcano, is the most eruptive volcano. Although other types of volcanoes also rank as the ten most eruptive volcanoes, stratovolcanoes make up the half of the most eruptive volcanoes. It seems that although several highly eruptive volcanoes of other types exist, a stratovolcano is on average the most eruptive type of volcano.</p>
 </div>
 <div id="conclusion" class="section level1">
 <h1>Conclusion:</h1>
+<p>Although highly eruptive volcanoes of other types exist, the stratovolcano is on average the most risky volcano type to be around. Even when not just a few kilometers away, a volcano’s eruptions can even temporarily impact the atmosphere. Consequently, living near an active volcano can potentially be very hazardous, especially those which typically erupt at a 4 or higher VEI. In conclusion, volcanoes can have a large environmental impact on the areas around it.</p>
 </div>
