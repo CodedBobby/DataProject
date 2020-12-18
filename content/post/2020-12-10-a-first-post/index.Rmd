@@ -74,7 +74,7 @@ dat1 %>%
   
   coord_quickmap()+
   
-  ggtitle("Locations of Recently Erupted Volcanoes with nearby People")+
+  ggtitle("Locations of Recently Erupted Volcanoes with nearby People (High)")+
   
   theme(legend.position="bottom")+
   
