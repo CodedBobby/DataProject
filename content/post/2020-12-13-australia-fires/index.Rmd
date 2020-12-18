@@ -20,7 +20,7 @@ library(dplyr)
 library(patchwork)
 ```
 
-Using the Australia fires data from tinytuesday I will investigate the location and frequency of the fires in Australia. I will use the rainfall and MODIS datasets to explore this. The variables in the rainfall data are city_name, which is the name of the city where rainfall was measured, lat and long, which are the coordinates of the city, year, month and day, which together are the date the rainfall was measured on. The MODIS data has the latitude and longitude variables which show the coordinates of the fire's center, acq_date which is the date when the fire started over the 8 days measured and confidence which is the percent chance that the point recorded is actually a fire.
+Using the Australia fires data from tinytuesday I will investigate the location and frequency of fires in Australia. I will use the rainfall and MODIS datasets to explore this. The variables in the rainfall data are city_name, which is the name of the city where rainfall was measured, lat and long, which are the coordinates of the city, and the year, month and day, which together are the date the rainfall was measured on. The MODIS data has the latitude and longitude variables which show the coordinates of the fire's center, acq_date which is the date when the fire started over the 8 days measured and confidence which is the percent chance that the point recorded is actually a fire.
 
 ```{r}
 Rainfall<-read.csv(here::here("content","post","2020-12-13-australia-fires","data","rainfall.csv"))
@@ -29,7 +29,7 @@ Fires<-read.csv(here::here("content","post","2020-12-13-australia-fires","data",
 ```
 
 # Question 1:
-How many of these fires happened near the cities, and have the number of fires changed in these cities changed over time? I will examine this by counting the number of instances of fires with longitude and latitude equal to the city coordinates rounded to 0 decimal places.
+How many of these fires happened near the cities of Adelaide, Brisbane, Canberra, Melbourne, Perth and Sydney, and have the number of fires in these cities changed over time? I will examine this by counting the number of instances of fires with longitude and latitude equal to the city coordinates rounded to 0 decimal places.
 ```{r, message=FALSE}
 CityCoord <- Rainfall %>%
   
@@ -85,18 +85,18 @@ Fires %>%
   
   xlab("City")+
   
-  ggtitle("Number of Nearby Fires vs Cities over time")+
+  ggtitle("Number of Nearby Fires Near Each City over time")+
   
   facet_wrap(~ city_name)+
   
   theme(axis.text.x = element_text(angle = -75,hjust=-.1))
 ```
 
-There were fires only near three out of the six cities recorded (the other three being Adelaide, Brisbane and Canberra), and it seems Sydney has by far the greatest number of nearby fires, having almost double the number of Perth and Melbourne. Perth, however, is the city that has experienced the greatest number of fires in a single day with 7 fires, whereas Melbourne and Sydney only had 6 at most. In addition, that day in particular is also the one day where no fire has occurred near Sydney.
+There were fires near only three of the six cities recorded (the three that had no nearby fires were Adelaide, Brisbane and Canberra), and it seems Sydney had by far the greatest number of nearby fires, with almost double the number that Perth and Melbourne had. Perth, however, is the city that experienced the greatest number of fires in a single day with 7 fires, whereas Melbourne and Sydney only had 6 at most. In addition, that day in particular is also the one day where no fire occurred near Sydney.
 
 
 # Question 2:
-Where have fires happened the most? To determine this, I will round the longitudes and latitudes of all fires to one decimal place and count the 20 areas with the highest number of fires. I will then map their coordinates along with their position relative to the cities (shown as black squares) listed in the CityCoord data created in question 1.
+What areas of Australia had the greatest number of fires? To determine this, I will round the longitudes and latitudes of all fires to one decimal place and count the 20 areas with the highest number of fires. I will then map their coordinates along with their position relative to the cities (shown as black squares) listed in the CityCoord data created in question 1.
 ```{r, message=FALSE}
 FireMap <- Fires %>%
   
@@ -112,7 +112,7 @@ FireMap <- Fires %>%
   
   rename("TotalFires" = "total")
 ```  
-In order to count the number of fire detections close to each other to determine concentration I rounded each of the fires' longitudes and latitudes from three to one decimal point, and for that particular pair of longitude and latitude one fire case is added. After that, the 20 pairs of longitude and latitude with the highest number of fires are recorded in FireMap.
+In order to count the number of fire detections close to each other to determine concentration I rounded each of the fires' longitudes and latitudes from three decimal points to one, and for that particular pair of longitude and latitude one fire case is added. After that, the 20 pairs of longitude and latitude with the highest number of cases are recorded in FireMap.
 ```{r, message=FALSE}
 ggplot()+
   
@@ -147,7 +147,7 @@ Fires %>%
   rename("Total Fires In Area" = "total")
 ```
 
-It seems the areas with the highest number of fires are all near the Southeastern coast of Australia. It should be taken into account, however, that total number of fires in an area does not necessarily indicate how damaged the area was by fire, as it doesn't take into account the intensity of the fires. As such, one area can be more damaged by fires than another even with a lower total number of fires as long as the intensity of each of its fires is large enough. Since the 21 areas with the largest concentrations of fire detections are also generally near where there are cities, human activity may be one of the causes behind the large concentration of fires in that area.
+It seems the areas with the highest number of fires are all near the Southeastern coast of Australia. It should be taken into account, however, that total number of fires in an area does not necessarily indicate how damaged the area was by fire, as it doesn't take into account the intensity of the fires. As such, one area can be more damaged by fires than another even with a lower total number of fires as long as the intensity of each of its fires is large enough. Since the 20 areas with the largest concentrations of fire detections are also generally near cities, human activity may be one of the causes behind the large concentration of fires in that area.
 
 # Question 3:
 How has the frequency of fires changed over the 8 days, and is there any difference between the frequency of fires during the day and during the night? To determine this, I will create a line graph counting every instance of a fire over the days and faceting it based on whether it happened during the day or during the night. One thing to note however is that, as indicated by the confidence variable ranging from 0% to 100%, it is possible that some of the fire detections by the satellite listed in the data are not actually fires, so I will also make graphs for only fire detections above 50% confidence and at 100% confidence to see if there's any variation between them.
@@ -223,4 +223,4 @@ It seems amount of fires is mostly consistent with a spike on day two and day se
 
 # Conclusion:
 
-There seems to be a very high concentration of fires in Southeastern Australia. It is possible that this is due to human activity because this is also where alot of cities are located, and some of these fires were detected very close to the cities. However, the amount of fires may not be what they seem, since the fire detections with 100% confidence by the satellite are only about half the total number of fire detections, although for the most part the trends in the amount of fires each day are the same regardless of confidence level. In conclusion, there should be a bigger focus on fire protection in southeastern australia.
+There seems to be a very high concentration of fires in Southeastern Australia. It is possible that this is due to human activity because many major cities are located there. It is impossible to determine exactly how many fires occurred over this 8 day period, but even at the lowest estimate they are in the thousands. In conclusion, there should be a bigger focus on fire protection in southeastern Australia, especially during the summer months where the heat can easily cause dry vegetation to catch on fire.
