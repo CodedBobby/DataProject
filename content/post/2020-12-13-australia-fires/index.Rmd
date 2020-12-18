@@ -63,7 +63,7 @@ Fires %>%
   
   xlab("City")+
   
-  ggtitle("Total Number of Nearby Fires vs Cities")
+  ggtitle("Total Number of Fires Near Each City")
 
 Fires %>%
   
@@ -92,7 +92,7 @@ Fires %>%
   theme(axis.text.x = element_text(angle = -75,hjust=-.1))
 ```
 
-There were fires only near three out of the six cities recorded, and it seems Sydney has by far the greatest number of nearby fires, having almost double the number of Perth and Melbourne. Perth, however, is the city that has experienced the greatest number of fires in a single day with 7 fires, whereas Melbourne and Sydney only had 6 at most. In addition, that day in particular is also the one day where no fire has occurred near Sydney.
+There were fires only near three out of the six cities recorded (the other three being Adelaide, Brisbane and Canberra), and it seems Sydney has by far the greatest number of nearby fires, having almost double the number of Perth and Melbourne. Perth, however, is the city that has experienced the greatest number of fires in a single day with 7 fires, whereas Melbourne and Sydney only had 6 at most. In addition, that day in particular is also the one day where no fire has occurred near Sydney.
 
 
 # Question 2:

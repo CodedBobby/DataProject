@@ -40,7 +40,7 @@ ggplot(aes(city_name, n)) +
 geom_bar(stat = &quot;identity&quot;) + 
 ylab(&quot;Number of nearby fires&quot;) + 
 xlab(&quot;City&quot;) + 
-ggtitle(&quot;Total Number of Nearby Fires vs Cities&quot;)</code></pre>
+ggtitle(&quot;Total Number of Fires Near Each City&quot;)</code></pre>
 <p><img src="index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <pre class="r"><code>Fires %&gt;% 
 mutate(longitude = round(longitude, digits = 0), latitude = round(latitude, digits = 0)) %&gt;% 
@@ -57,7 +57,7 @@ ggtitle(&quot;Number of Nearby Fires vs Cities over time&quot;) +
 facet_wrap(~city_name) + 
 theme(axis.text.x = element_text(angle = -75, hjust = -0.1))</code></pre>
 <p><img src="index_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
-<p>There were fires only near three out of the six cities recorded, and it seems Sydney has by far the greatest number of nearby fires, having almost double the number of Perth and Melbourne. Perth, however, is the city that has experienced the greatest number of fires in a single day with 7 fires, whereas Melbourne and Sydney only had 6 at most. In addition, that day in particular is also the one day where no fire has occurred near Sydney.</p>
+<p>There were fires only near three out of the six cities recorded (the other three being Adelaide, Brisbane and Canberra), and it seems Sydney has by far the greatest number of nearby fires, having almost double the number of Perth and Melbourne. Perth, however, is the city that has experienced the greatest number of fires in a single day with 7 fires, whereas Melbourne and Sydney only had 6 at most. In addition, that day in particular is also the one day where no fire has occurred near Sydney.</p>
 </div>
 <div id="question-2" class="section level1">
 <h1>Question 2:</h1>
