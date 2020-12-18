@@ -51,7 +51,7 @@ left_join(dat2, by = c(&quot;volcano_number&quot;, &quot;volcano_name&quot;, &qu
     
 group_by(volcano_name, volcano_number) %&gt;% 
 filter(eruption_category == &quot;Confirmed Eruption&quot;, start_year &gt;= 1800, start_year == 
-    max(start_year), population_within_5_km &gt;= 1000) %&gt;% 
+    max(start_year), population_within_5_km &gt;= 25000) %&gt;% 
 select(region, longitude, latitude, population_within_5_km) %&gt;% 
 ggplot(aes(longitude, latitude, color = population_within_5_km/1e+06)) + 
 geom_point() + 
@@ -60,7 +60,23 @@ coord_quickmap() +
 ggtitle(&quot;Locations of Recently Erupted Volcanoes with nearby People&quot;) + 
 theme(legend.position = &quot;bottom&quot;) + 
 scale_color_gradient(name = &quot;Population within 5 km (Millions)&quot;, low = &quot;blue&quot;, high = &quot;red&quot;)</code></pre>
-<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code>dat1 %&gt;% 
+left_join(dat2, by = c(&quot;volcano_number&quot;, &quot;volcano_name&quot;, &quot;longitude&quot;, &quot;latitude&quot;)) %&gt;% 
+    
+group_by(volcano_name, volcano_number) %&gt;% 
+filter(eruption_category == &quot;Confirmed Eruption&quot;, start_year &gt;= 1800, start_year == 
+    max(start_year), population_within_5_km &gt;= 1000, population_within_5_km &lt;= 25000) %&gt;% 
+    
+select(region, longitude, latitude, population_within_5_km) %&gt;% 
+ggplot(aes(longitude, latitude, color = population_within_5_km/1000)) + 
+geom_point() + 
+borders(&quot;world&quot;) + 
+coord_quickmap() + 
+ggtitle(&quot;Locations of Recently Erupted Volcanoes with nearby People (Low)&quot;) + 
+theme(legend.position = &quot;bottom&quot;) + 
+scale_color_gradient(name = &quot;Population within 5 km (thousands)&quot;, low = &quot;blue&quot;, high = &quot;red&quot;)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 Most of the volcanoes seem to be located on the coasts of continents. For one of these volcanoes in Mexico, Michoacan-Guanajuato, there are about 5 million people living within 5 kilometers of it which could be hazardous for the people living there if it erupts again. Besides Mexico, other places where people live close to volcanoes are Indonesia and Japan, but most have below 3 million people.</p>
 </div>
 <div id="question-3" class="section level1">
@@ -80,7 +96,7 @@ theme(axis.text.x = element_text(angle = -60, hjust = 0, vjust = 0.5)) +
 ylab(&quot;Number of Eruptions&quot;) + 
 xlab(&quot;Volcano Name&quot;) + 
 ggtitle(&quot;Number of Eruptions by volcano&quot;)</code></pre>
-<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <pre class="r"><code>dat1 %&gt;% 
 left_join(dat2, by = c(&quot;volcano_number&quot;, &quot;volcano_name&quot;, &quot;longitude&quot;, &quot;latitude&quot;)) %&gt;% 
     
@@ -95,7 +111,7 @@ theme(axis.text.x = element_text(angle = -90, hjust = 0, vjust = 0.5)) +
 ylab(&quot;Number of Eruptions&quot;) + 
 xlab(&quot;Volcano Type&quot;) + 
 ggtitle(&quot;Number of Eruptions by volcano type&quot;)</code></pre>
-<p><img src="index_files/figure-html/unnamed-chunk-5-2.png" width="672" />
+<p><img src="index_files/figure-html/unnamed-chunk-6-2.png" width="672" />
 Out of the various volcano types, the stratovolcano has the largest number of eruptions, being about four times as eruptive as a shield volcano. In addition among the volcanoes around the world, Mount Etna, a stratovolcano, is the most eruptive volcano. Although other types of volcanoes also rank as the ten most eruptive volcanoes, stratovolcanoes make up the half of the most eruptive volcanoes. It seems that although several highly eruptive volcanoes of other types exist, a stratovolcano is on average the most eruptive type of volcano.</p>
 </div>
 <div id="conclusion" class="section level1">

@@ -62,7 +62,7 @@ dat1 %>%
   
   group_by(volcano_name,volcano_number)%>%
 
-  filter(eruption_category == "Confirmed Eruption",start_year >= 1800, start_year == max(start_year),population_within_5_km>=1000)%>%
+  filter(eruption_category == "Confirmed Eruption",start_year >= 1800, start_year == max(start_year),population_within_5_km>=25000)%>%
   
   select(region,longitude,latitude,population_within_5_km)%>%
   
@@ -79,6 +79,32 @@ dat1 %>%
   theme(legend.position="bottom")+
   
   scale_color_gradient(name="Population within 5 km (Millions)",low="blue",high="red")
+```
+
+```{r, message=FALSE}
+dat1 %>%
+  
+  left_join(dat2, by = c("volcano_number","volcano_name","longitude","latitude"))%>%
+  
+  group_by(volcano_name,volcano_number)%>%
+
+  filter(eruption_category == "Confirmed Eruption",start_year >= 1800, start_year == max(start_year),population_within_5_km>=1000,population_within_5_km<=25000)%>%
+  
+  select(region,longitude,latitude,population_within_5_km)%>%
+  
+  ggplot(aes(longitude,latitude,color=population_within_5_km/1000))+
+  
+  geom_point()+
+  
+  borders("world")+
+  
+  coord_quickmap()+
+  
+  ggtitle("Locations of Recently Erupted Volcanoes with nearby People (Low)")+
+  
+  theme(legend.position="bottom")+
+  
+  scale_color_gradient(name="Population within 5 km (thousands)",low="blue",high="red")
 ```
 Most of the volcanoes seem to be located on the coasts of continents. For one of these volcanoes in Mexico, Michoacan-Guanajuato, there are about 5 million people living within 5 kilometers of it which could be hazardous for the people living there if it erupts again. Besides Mexico, other places where people live close to volcanoes are Indonesia and Japan, but most have below 3 million people.
 
