@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.12.17)  17 DEC 2020 12:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.12.17)  14 SEP 2021 12:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -802,7 +802,7 @@ File: fc-english.def 2016/01/12
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
 (lastpage)             ! on input line 139.
-<BSlav.jpg, id=27, 200.75pt x 200.75pt>
+<BSlav.jpg, id=23, 200.75pt x 200.75pt>
 File: BSlav.jpg Graphic file (type jpg)
 <use BSlav.jpg>
 Package pdftex.def Info: BSlav.jpg  used on input line 144.
@@ -874,14 +874,14 @@ AED: lastpage setting LastPage
 {/home/bslavin/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./BSlav.
 jpg>] (./resume-example.aux)
 Package rerunfilecheck Info: File `resume-example.out' has not changed.
-(rerunfilecheck)             Checksum: 1ACDAB1F8E3B47450CDC37BA8514BC4F;782.
+(rerunfilecheck)             Checksum: 54698962E27156B0B82577E44FA9B657;543.
  ) 
 Here is how much of TeX's memory you used:
- 24186 strings out of 481330
- 422149 string characters out of 5917594
- 720297 words of memory out of 5000000
- 40557 multiletter control sequences out of 15000+600000
- 459536 words of font info for 62 fonts, out of 8000000 for 9000
+ 24174 strings out of 481330
+ 421968 string characters out of 5917594
+ 721297 words of memory out of 5000000
+ 40548 multiletter control sequences out of 15000+600000
+ 450744 words of font info for 59 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  80i,11n,85p,1026b,654s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/home/bslavin/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/home/bslavi
@@ -890,16 +890,15 @@ mf-dist/fonts/enc/dvips/fontawesome/fontawesomethree.enc}{/home/bslavin/.TinyTe
 X/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.enc}</home/bslavin/.Tin
 yTeX/texmf-dist/fonts/type1/public/fontawesome/FontAwesome.pfb></home/bslavin/.
 TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></home/bslavin/.TinyTeX/tex
-mf-dist/fonts/type1/public/lm/lmcsc10.pfb></home/bslavin/.TinyTeX/texmf-dist/fo
-nts/type1/public/lm/lmr10.pfb></home/bslavin/.TinyTeX/texmf-dist/fonts/type1/pu
-blic/lm/lmr8.pfb></home/bslavin/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.
-pfb></home/bslavin/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmri8.pfb></home/b
-slavin/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></home/bslavin/.T
-inyTeX/texmf-dist/fonts/type1/public/lm/lmtt9.pfb>
-Output written on resume-example.pdf (1 page, 205111 bytes).
+mf-dist/fonts/type1/public/lm/lmr10.pfb></home/bslavin/.TinyTeX/texmf-dist/font
+s/type1/public/lm/lmr8.pfb></home/bslavin/.TinyTeX/texmf-dist/fonts/type1/publi
+c/lm/lmr9.pfb></home/bslavin/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmri8.pf
+b></home/bslavin/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></home/
+bslavin/.TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt9.pfb>
+Output written on resume-example.pdf (1 page, 182294 bytes).
 PDF statistics:
- 95 PDF objects out of 1000 (max. 8388607)
- 81 compressed objects within 1 object stream
- 12 named destinations out of 1000 (max. 500000)
- 58 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 86 PDF objects out of 1000 (max. 8388607)
+ 73 compressed objects within 1 object stream
+ 10 named destinations out of 1000 (max. 500000)
+ 50 words of extra memory for PDF output out of 10000 (max. 10000000)
 

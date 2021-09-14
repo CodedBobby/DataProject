@@ -17,8 +17,7 @@ geometry: margin=1in
 # How can we get a hold of you?
 email: BobbySlavin2@gmail.com
 phone: 501-703-3164
-location: "Little Rock, AR"
-github: bslavin
+location: "Fayetteville, AR"
 linkedin: "bobby-slavin-490b791ba"
 mainfont: cochineal
 sansfont: Fira Sans
@@ -42,12 +41,11 @@ photobigness: 1.75cm
 
 # Professional Experience
 
-- None so far, but I'm planning to get some professional experience during university once COVID-19 is over.
+- None so far, but I'm planning to develop my professional experience during an internship.
 
 # Education
-
-## High School
 - Graduated from Central High School in Little Rock, Arkansas in 2020.
+- Finished freshman year as a Data Scientist in the University of Arkansas.
 
 
 :::
@@ -57,15 +55,16 @@ photobigness: 1.75cm
 :::
 :::::: {.column width="38%" data-latex="{0.38\textwidth}"}
 
-# Technical Skills (or Accomplishments)
+# Technical Skills
 
-- I know Javascript, Python, and R
-- I am proficient in operating various digital technologies and can learn how different ones are used quickly
-- I have basic data analytical skills
+- I know R as well as basic java and python programming.
+- I am proficient in operating various digital technologies and can learn how use different ones quickly
+- I have experience analyzing large datasets and communicating the results in an easy to understand manner 
 
-## Awards and Distinctions
+# Awards and Distinctions
 
-- Got a score of 1450 on the SAT and a score of 33 on the ACT.
+- Recieved a score of 1450 on the SAT and a score of 33 on the ACT.
+- Currently maintaining a cumulative GPA of 3.87 in the University of Arkansas.
 
 :::
 ::::::
